@@ -1,38 +1,13 @@
 ---
-title: Hello World
+title: 鼠鼠王国・异世自留地
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+鼠鼠为王，异世称雄；以微末之躯，掌一方天地。
 
-## Quick Start
+## 异世鼠鼠王国 初代目国王
 
-### Create a new post
+### 穿梭于次元裂隙的鼠系主宰，摸鱼摆烂但专治不服的异世界领主
 
-``` bash
-$ hexo new "My New Post"
-```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+本王的国土，藏在异世的墙缝与角落；本王的臣民，皆是敢闯敢拼的鼠辈英豪。凡踏足此地者，皆为吾之宾客 —— 顺鼠者昌，逆鼠者… 哼，罚你给本王囤三车松果！
 
-### Run server
 
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)

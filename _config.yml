@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: 欢迎来到鼠鼠王国
+subtitle: '转生成为下水道的鼠鼠'
 description: ''
 keywords:
 author: John Doe
@@ -96,8 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
-
+theme: Kliener Maus
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
