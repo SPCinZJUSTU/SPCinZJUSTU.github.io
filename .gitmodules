@@ -1,1 +1,3 @@
-[submodule "themes/dearmsdan"] path = themes/dearmsdan url =https://github.com/ZHD99/hexo-theme-dearmsdan.git
+[submodule "themes/dearmsdan"] 
+  path = themes/dearmsdan 
+  url = git@github.com:hearxs/hexo-theme-dearmsdan.git
