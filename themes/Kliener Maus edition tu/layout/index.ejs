@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>eusid dev services</title>
+<title>鼠之勇者</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%- css('css/style') %>
@@ -8,19 +8,35 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+ @font-face {
+    font-family: 'Qiuyeyuan';
+    /* 注意：要用 jsDelivr 的链接，不要用 github.com 的链接 */
+    src: url('https://cdn.jsdelivr.net/gh/SPCinZJUSTU/SPCinZJUSTU.github.io/fonts/Qiuyeyuan-16.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /* 让文字先显示，字体加载完再替换，避免白屏 */
+  }
 h1, h2, h3, h4 {
-    font-family: "Helvetica Neue","宋体", Helvetica, Arial, "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "STHeiti", "SimSun",  sans-serif;
+    font-family: "Helvetica Neue","Qiuyeyuan", Helvetica, Arial, "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "STHeiti", "SimSun",  sans-serif;
+    font-weight: 1000;
+    letter-spacing: 3px;
 }
+
 </style>
 <body class="index-content">
   <!-- !PAGE CONTENT! -->
   <div class="w3-content " style="max-width:1500px">
     <!-- Header -->
     <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+      <div style="text-align: left">
       <h4>当你醒来发现转生成为老鼠</h4><br>
-      <h2>“鼠鼠我呀即使是独一无二的,但还是茫茫人海中最卑微的存在捏。</h2>
+      </div>
+      <div>
+      <h2>“鼠鼠我呀即使是独一无二的,但还是茫茫人海中最卑微的存在捏。”</h2>
+      <div style="text-align: right;   transform: translateX(-150px);" >
       <h3>——鼠鼠国王</h1>
-
+      </div>
+      </div>
       <div class="w3-padding-32">
         <div class="w3-bar w3-border">
         <% for (var i in theme.menu){ %>
