@@ -1,0 +1,33 @@
+.container {
+  margin-top: 0px;
+}
+
+.w2-padding-32 {
+  margin-bottom: 0px;
+}
+
+.row {
+  min-width: 100%;
+}
+
+.col-xs {
+  position: absolute;
+  top: 450px;
+}
+
+header {
+  margin-bottom: 128PX;
+}
+
+.container .row {
+  valign: top;
+}
+
+h1 {
+    font-family: "Raleway", Arial, sans-serif;
+    letter-spacing: 6px;
+}
+
+.w3-row-padding img {
+    margin-bottom: 12px
+}

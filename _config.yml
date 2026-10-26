@@ -4,10 +4,10 @@
 
 # Site
 title: 欢迎来到鼠鼠王国
-subtitle: '转生成为下水道的鼠鼠'
+subtitle: '转生成为下水道的鼠鼠--吱'
 description: ''
 keywords:
-author: John Doe
+author: Aristoto
 language: en
 timezone: ''
 
@@ -25,6 +25,7 @@ source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
+index_dir: index
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
@@ -96,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Kliener Maus
+theme: Kliener Maus edition tu
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:

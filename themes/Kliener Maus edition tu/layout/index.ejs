@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>eusid dev services</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%- css('css/style') %>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1, h2, h3, h4 {
+    font-family: "Helvetica Neue","宋体", Helvetica, Arial, "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "STHeiti", "SimSun",  sans-serif;
+}
+</style>
+<body class="index-content">
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-content " style="max-width:1500px">
+    <!-- Header -->
+    <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+      <h4>当你醒来发现转生成为老鼠</h4><br>
+      <h2>“鼠鼠我呀即使是独一无二的,但还是茫茫人海中最卑微的存在捏。</h2>
+      <h3>——鼠鼠国王</h1>
+
+      <div class="w3-padding-32">
+        <div class="w3-bar w3-border">
+        <% for (var i in theme.menu){ %>
+          <a class="w3-bar-item w3-button  w3-hover-red w3-white" href="<%- url_for(theme.menu[i]) %>" ><%= i %></a>
+        <% } %>
+        </div>
+      </div>
+    </header>
+    <div class='container'>
+      <div class="row">
+        <div class="col-xs"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-large index-footer"  style="background-color: rgba(235, 231, 231, 0.5) ">
+      <i class="fa fa-github w3-hover-opacity" ></i>
+      <i class="fa fa-twitter w3-hover-opacity" ></i>
+      <i class="fa fa-linkedin w3-hover-opacity" ></i>
+    </footer>
+
+</body>
+
+</html>
