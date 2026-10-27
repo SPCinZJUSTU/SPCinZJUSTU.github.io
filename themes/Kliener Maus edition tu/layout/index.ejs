@@ -25,10 +25,34 @@ h1, h2, h3, h4 {
    -webkit-text-stroke: 1px #ffffff;*/
       text-shadow: 1px 3px 3px #0013f9, 2px 2px 10px #888, 3px 3px 0 #000000, 1px 3px 0 #0a0a0a;
     color: rgb(255 131 216);
+    position: relative;
+    z-index: 99;
 }
+/* 遮罩容器：固定覆盖视口，不挡交互 */
+  .cloud-mask {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* 每朵云是一个 div，背景图指向素材库里的某张 SVG */
+  .cloud {
+    position: absolute;
+    left: 0;
+    top: 0;
+    will-change: transform;
+    transform-origin: center center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+
 
 </style>
-<body class="index-content">
+<body class="index-content is-loading">
   <!-- !PAGE CONTENT! -->
   <div class="w3-content " style="max-width:1500px">
     <!-- Header -->
@@ -37,7 +61,7 @@ h1, h2, h3, h4 {
       <h4>当你醒来发现转生成为老鼠</h4><br>
       </div>
       <div>
-      <h2 style=" ">“鼠鼠我呀即使是独一无二的,但还是茫茫人海中最卑微的存在捏。”</h2>
+      <h2 >“鼠鼠我呀即使是独一无二的,但还是茫茫人海中最卑微的存在捏。”</h2>
       <div style="text-align: right;   transform: translateX(-150px);" >
       <h3>——鼠鼠国王</h1>
       </div>
@@ -45,7 +69,7 @@ h1, h2, h3, h4 {
       <div class="w3-padding-32">
         <div class="w3-bar w3-border">
         <% for (var i in theme.menu){ %>
-          <a class="w3-bar-item w3-button  w3-hover-purple w3-white" href="<%- url_for(theme.menu[i]) %>" ><%= i %></a>
+          <a class="w3-bar-item w3-button  w3-hover-purple w3-white" id="golink" href="<%- url_for(theme.menu[i]) %>" ><%= i %></a>
         <% } %>
         </div>
       </div>
@@ -56,13 +80,234 @@ h1, h2, h3, h4 {
       </div>
     </div>
 
+<div class="cloud-mask" id="cloudMask" aria-hidden="true"></div>
+<!-- 云层遮罩：载入和转场共用 -->
+  <div class="cloud-overlay is-active" id="cloudOverlay" aria-hidden="true">
+    <div class="cloud-overlay__hint">
+      <!-- 载入模式 -->
+      <div class="cloud-overlay__hint--loading">
+        <div class="cloud-overlay__spinner"></div>
+        <div>加载中…</div>
+      </div>
+      <!-- 转场模式 -->
+      <div class="cloud-overlay__hint--navigating">正在前往…</div>
+    </div>
+  </div>
+
+  </div>
+
     <!-- Footer -->
     <footer class="w3-container w3-padding-64 w3-center w3-large index-footer"  style="background-color: rgba(235, 231, 231, 0.5) ">
       <i class="fa fa-github w3-hover-opacity" ></i>
       <i class="fa fa-twitter w3-hover-opacity" ></i>
       <i class="fa fa-linkedin w3-hover-opacity" ></i>
     </footer>
+<%- partial('_partial/after-footer') %>
+<script>
+(function () {
+    /*++云朵*/
+  const mask = document.getElementById('cloudMask');
+  const CLOUD_COUNT = 10;
+  const clouds = [];
+  let vw = window.innerWidth;
+  let vh = window.innerHeight;
 
+  const rand = (min, max) => min + Math.random() * (max - min);
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+  /*
+   * 4 张云 SVG 素材。
+   * 每张都是 viewBox="0 0 400 260" 的纯路径，内部带一个静态 feGaussianBlur 柔边。
+   * 路径用简化的团块轮廓，而不是写实细节，方便靠缩放/翻转制造差异。
+   * 柔边滤镜只在素材渲染时计算一次，不参与动画，开销可忽略。
+   */
+  const CLOUD_SVGS = [
+    // 素材 1：横向长条云，三团
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+      <defs>
+        <filter id="soft1" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4"/>
+        </filter>
+      </defs>
+      <g filter="url(#soft1)" fill="#ffffff">
+        <ellipse cx="120" cy="150" rx="95" ry="55"/>
+        <ellipse cx="210" cy="120" rx="110" ry="65"/>
+        <ellipse cx="300" cy="155" rx="85" ry="50"/>
+        <rect x="80" y="150" width="250" height="55" rx="27"/>
+      </g>
+    </svg>`,
+
+    // 素材 2：高耸积云，上下两层
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+      <defs>
+        <filter id="soft2" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4"/>
+        </filter>
+      </defs>
+      <g filter="url(#soft2)" fill="#ffffff">
+        <ellipse cx="200" cy="105" rx="85" ry="70"/>
+        <ellipse cx="145" cy="145" rx="75" ry="55"/>
+        <ellipse cx="255" cy="145" rx="80" ry="58"/>
+        <rect x="100" y="145" width="200" height="60" rx="30"/>
+      </g>
+    </svg>`,
+
+    // 素材 3：细长卷云，横向拉长
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+      <defs>
+        <filter id="soft3" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="5"/>
+        </filter>
+      </defs>
+      <g filter="url(#soft3)" fill="#ffffff">
+        <ellipse cx="140" cy="130" rx="130" ry="38"/>
+        <ellipse cx="260" cy="125" rx="110" ry="34"/>
+        <ellipse cx="200" cy="145" rx="150" ry="30"/>
+      </g>
+    </svg>`,
+
+    // 素材 4：不对称团块云，偏左
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+      <defs>
+        <filter id="soft4" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4"/>
+        </filter>
+      </defs>
+      <g filter="url(#soft4)" fill="#ffffff">
+        <ellipse cx="130" cy="140" rx="105" ry="65"/>
+        <ellipse cx="205" cy="120" rx="80" ry="52"/>
+        <ellipse cx="270" cy="155" rx="70" ry="42"/>
+        <rect x="70" y="140" width="230" height="55" rx="27"/>
+      </g>
+    </svg>`,
+  ];
+
+  // 把 SVG 字符串转成可作为 background-image 的 data URI
+  function svgToDataUri(svg) {
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
+
+  // 预先把 4 张素材转成 data URI，避免每朵云重复编码
+  const CLOUD_URIS = CLOUD_SVGS.map(svgToDataUri);
+
+  function createCloud() {
+    const el = document.createElement('div');
+    el.className = 'cloud';
+
+    // 随机挑一张素材
+    const uri = pick(CLOUD_URIS);
+    el.style.backgroundImage = `url("${uri}")`;
+
+    // 随机尺寸：宽 260~560，高按素材比例 0.65
+    const size = rand(260, 560);
+    const w = size;
+    const h = size * 0.65;
+    el.style.width = w + 'px';
+    el.style.height = h + 'px';
+
+    // 随机透明度，制造前后景深浅
+    const opacity = rand(0.35, 0.8);
+    el.style.opacity = opacity;
+
+    // 随机水平翻转（50% 概率），让同一素材看起来不同
+    const flip = Math.random() < 0.5 ? -1 : 1;
+
+    // 随机初始位置：允许略超出视口，避免一开始排列太整齐
+    const x = rand(-w * 0.3, vw - w * 0.5);
+    const y = rand(-h * 0.2, vh * 0.75);
+
+    // 随机漂移速度：横向为主，方向随机
+    const speedX = rand(5, 20) * (Math.random() < 0.5 ? -1 : 1);
+    const speedY = rand(-2.5, 2.5);
+
+    // 正弦浮动参数
+    const floatAmpX = rand(8, 24);
+    const floatAmpY = rand(6, 18);
+    const floatFreqX = rand(0.04, 0.12);
+    const floatFreqY = rand(0.03, 0.1);
+    const floatPhaseX = rand(0, Math.PI * 2);
+    const floatPhaseY = rand(0, Math.PI * 2);
+
+    // 缩放呼吸参数
+    const scaleAmp = rand(0.02, 0.05);
+    const scaleFreq = rand(0.02, 0.06);
+    const scalePhase = rand(0, Math.PI * 2);
+
+    // 混合模式：screen 让云在深色背景上更亮更自然
+    el.style.mixBlendMode = 'screen';
+
+    mask.appendChild(el);
+
+    return {
+      el,
+      x, y,
+      baseX: x,
+      baseY: y,
+      w, h,
+      flip,
+      speedX, speedY,
+      floatAmpX, floatAmpY,
+      floatFreqX, floatFreqY,
+      floatPhaseX, floatPhaseY,
+      scaleAmp, scaleFreq, scalePhase,
+    };
+  }
+
+  for (let i = 0; i < CLOUD_COUNT; i++) clouds.push(createCloud());
+
+  let lastTime = performance.now();
+  let elapsed = 0;
+
+  function animate(now) {
+    const dt = Math.min((now - lastTime) / 1000, 0.05);
+    lastTime = now;
+    elapsed += dt;
+
+    for (const c of clouds) {
+      // 基础漂移
+      c.baseX += c.speedX * dt;
+      c.baseY += c.speedY * dt;
+
+      // 边界循环：完全移出视口后从对侧重新进入
+      const margin = c.w * 0.8;
+      if (c.baseX > vw + margin) {
+        c.baseX = -margin;
+        c.baseY = rand(-c.h * 0.2, vh * 0.75);
+      } else if (c.baseX < -margin - c.w) {
+        c.baseX = vw + margin;
+        c.baseY = rand(-c.h * 0.2, vh * 0.75);
+      }
+      if (c.baseY > vh + margin) {
+        c.baseY = -margin;
+      } else if (c.baseY < -margin - c.h) {
+        c.baseY = vh + margin;
+      }
+
+      // 正弦浮动
+      const fx = Math.sin(elapsed * c.floatFreqX + c.floatPhaseX) * c.floatAmpX;
+      const fy = Math.cos(elapsed * c.floatFreqY + c.floatPhaseY) * c.floatAmpY;
+
+      // 缩放呼吸
+      const scale = 1 + Math.sin(elapsed * c.scaleFreq + c.scalePhase) * c.scaleAmp;
+
+      // transform：translate + scale + 水平翻转
+      c.el.style.transform =
+        `translate3d(${c.baseX + fx}px, ${c.baseY + fy}px, 0) ` +
+        `scale(${c.flip * scale}, ${scale})`;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+
+  window.addEventListener('resize', () => {
+    vw = window.innerWidth;
+    vh = window.innerHeight;
+  });
+
+})();
+</script>
 </body>
 
 </html>

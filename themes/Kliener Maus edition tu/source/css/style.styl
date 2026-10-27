@@ -117,3 +117,110 @@ h1
     bottom: 0
     left: 0
     right: 0
+
+
+     /* ========== 转场遮罩层 ========== */
+    /* ========== 云层遮罩（载入和转场共用） ========== */
+  .cloud-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(255,255,255,.95), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 70% 20%, rgba(255,255,255,.9), transparent 70%),
+      radial-gradient(ellipse 70% 45% at 50% 60%, rgba(255,255,255,.95), transparent 75%),
+      radial-gradient(ellipse 55% 35% at 85% 70%, rgba(255,255,255,.9), transparent 70%),
+      radial-gradient(ellipse 65% 40% at 10% 80%, rgba(255,255,255,.9), transparent 72%),
+      rgba(240, 248, 255, .98);
+    transition: opacity .6s ease, visibility 0s linear .8s;
+  }
+
+/* 无过渡的“瞬间盖住”状态：载入时用 */
+.cloud-overlay.was-active {
+  opacity: 1;
+  visibility: visible;
+  transition: none;          /* 关键：不加任何过渡 */
+  pointer-events: all;
+}
+  .cloud-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition:
+    opacity .8s ease,
+    visibility 0s linear 0s;
+    pointer-events: all;
+  }
+
+  /* 云层内部漂移纹理 */
+  .cloud-overlay::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 40%, rgba(255,255,255,.6), transparent 70%),
+      radial-gradient(ellipse 35% 25% at 75% 55%, rgba(255,255,255,.5), transparent 70%),
+      radial-gradient(ellipse 45% 30% at 50% 75%, rgba(255,255,255,.55), transparent 72%);
+    animation: cloudDrift 8s ease-in-out infinite alternate;
+  }
+
+  /* 加载期间禁用云层过渡：首帧就是盖住的，不会有淡入 */
+body.is-loading .cloud-overlay {
+  transition: none;
+}
+
+  @keyframes cloudDrift {
+    from { transform: translate3d(-3%, -2%, 0) scale(1); }
+    to   { transform: translate3d(3%, 2%, 0) scale(1.06); }
+  }
+
+  /* 中央提示文字 */
+  .cloud-overlay__hint {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #1a2a6c;
+    font-size: 1rem;
+    letter-spacing: .1em;
+    opacity: 0;
+    transition: opacity .4s ease .3s;
+    text-align: center;
+  }
+  .cloud-overlay.is-active .cloud-overlay__hint {
+    opacity: .7;
+  }
+
+  /* 载入时的旋转小圆点 */
+  .cloud-overlay__spinner {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 12px;
+    border: 3px solid rgba(26, 42, 108, .2);
+    border-top-color: #1a2a6c;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+
+
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* 载入提示和转场提示文案区分 */
+  .cloud-overlay__hint--loading { display: none; }
+  .cloud-overlay__hint--navigating { display: none; }
+  .cloud-overlay.mode-loading .cloud-overlay__hint--loading { display: block; }
+  .cloud-overlay.mode-navigating .cloud-overlay__hint--navigating { display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cloud-overlay::before { animation: none; }
+    .cloud-overlay__spinner { animation: none; }
+    .cloud-overlay { transition-duration: .01s; }
+  }
+
+

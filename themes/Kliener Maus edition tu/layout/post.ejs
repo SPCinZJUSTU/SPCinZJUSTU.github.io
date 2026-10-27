@@ -14,7 +14,19 @@
       <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
     </div>
     <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-    <%- partial('_partial/after-footer') %>
+      <!-- 云层遮罩：载入和转场共用 -->
+  <div class="cloud-overlay is-active" id="cloudOverlay" aria-hidden="true">
+    <div class="cloud-overlay__hint">
+      <!-- 载入模式 -->
+      <div class="cloud-overlay__hint--loading">
+        <div class="cloud-overlay__spinner"></div>
+        <div>加载中…</div>
+      </div>
+      <!-- 转场模式 -->
+      <div class="cloud-overlay__hint--navigating">正在前往…</div>
+    </div>
   </div>
+  </div>
+<%- partial('_partial/after-footer') %>
 </body>
 </html>
