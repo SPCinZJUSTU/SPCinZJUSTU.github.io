@@ -103,7 +103,6 @@ if sidebar
 
 h1 
     font-family: "Raleway", Arial, sans-serif
-    letter-spacing: 6px
 
 
 .w3-row-padding img 
@@ -224,3 +223,30 @@ body.is-loading .cloud-overlay {
   }
 
 
+/* ===== 对话气泡式 blockquote ===== */
+blockquote {
+  margin: 14px 0;
+  padding: 12px 18px;
+  border-left: 4px solid #4a90d9;
+  background: #f0f6fc;
+  border-radius: 0 8px 8px 0;
+  color: #333;
+  font-size: 0.95em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  text-align:left;
+}
+
+/* 引用块内部段落间距收紧一点 */
+blockquote p {
+  margin: 6px 0;
+}
+
+/* 引用块内最后一段去掉多余底部间距 */
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* 可选：让引用块里的代码块也协调一点 */
+blockquote code {
+  background: #e2ecf7;
+}
