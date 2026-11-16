@@ -2,47 +2,55 @@ name:
   en: "Pei-Cheng Sun"
   cn: "孙 培 诚"
 title:
-  en: "RF / Microwave Engineer"
-  cn: "射频微波工程师"
+  en: "RF / Microwave Hardware Engineer"
+  cn: "射频微波硬件工程师"
 location:
   en: "Hangzhou, Zhejiang"
   cn: "浙江 · 杭州"
 phone: "+86 138 6802 5704"
 email: "12445058@zju.edu.cn"
 website: "https://spcinzjustu.github.io"
-avatar: "NENG2019.jpg"
+avatar: "/img/portrait.jpg"
 
 profile:
   en: >-
-    PhD researcher working on microwave metasurfaces, with hands-on experience
-    in planar microwave device simulation, magnetic semiconductor metamaterial
-    modeling, RF test automation, and PCB fabrication. Skilled in CST Studio
-    Suite full-wave simulation, able to independently set up VNA measurement
-    systems, and familiar with microwave substrate selection and fabrication
-    constraints up to 20 GHz.
+    PhD researcher in microwave metasurfaces, focusing on the physics and
+    hardware of planar microwave devices, magnetic-semiconductor metamaterials,
+    and nonreciprocal components. Experienced in CST full-wave simulation,
+    anisotropic gyroelectric/gyromagnetic modeling, PCB-based device fabrication,
+    and VNA measurement setup. Comfortable tracing discrepancies between
+    simulation and measurement back to material parameters, fabrication
+    tolerances, or assembly effects up to 20 GHz.
   cn: >-
-    微波超表面博士研究生，具备平面微波器件仿真、磁性半导体超材料建模、射频测试自动化及PCB工艺的项目经验。
-    熟悉CST Studio Suite全波仿真流程，能够独立完成VNA测量系统搭建，20 GHz以内微波板材选型与加工约束。
+    微波超表面博士研究生，聚焦平面微波器件、磁性半导体超材料与非互易器件的物理与硬件实现。
+    具备CST全波仿真、旋电/旋磁各向异性建模、PCB器件加工与VNA测量系统搭建经验，
+    能够将仿真与实测偏差追溯到材料参数、加工公差或装配效应，熟悉20 GHz以内微波板材选型与加工约束。
 
 skills:
+  - label:
+      en: "Microwave Physics"
+      cn: "微波物理"
+    value:
+      en: "Gyromagnetic / gyroelectric anisotropy, nonreciprocal device physics, filter synthesis (Butterworth / Chebyshev)"
+      cn: "旋磁各向异性、非互易器件物理、滤波器综合（Butterworth / Chebyshev）"
   - label:
       en: "Simulation"
       cn: "仿真"
     value:
-      en: "CST Studio Suite, Anisotropic Material Modeling"
-      cn: "CST Studio Suite、各向异性材料建模"
+      en: "CST Studio Suite (full-wave, anisotropic material modeling, S-parameter optimization)"
+      cn: "CST Studio Suite（全波仿真、各向异性材料建模、S参数优化）"
   - label:
-      en: "Programming"
-      cn: "编程"
+      en: "Hardware & Fabrication"
+      cn: "硬件与加工"
     value:
-      en: "Python, LabVIEW, PyVISA / SCPI"
-      cn: "Python、LabVIEW、PyVISA / SCPI"
+      en: "LPKF PCB engraving, line-width / impedance tolerance control, RF connectorization, spindle & tool maintenance"
+      cn: "LPKF PCB雕刻、线宽/阻抗公差控制、射频连接器装配、主轴与刀具维护"
   - label:
-      en: "RF & PCB"
-      cn: "射频与PCB"
+      en: "Test & Automation"
+      cn: "测试与自动化"
     value:
-      en: "VNA Calibration, PCB Process"
-      cn: "VNA校准、PCB工艺"
+      en: "VNA calibration, S-parameter measurement, PyVISA / SCPI, LabVIEW, Python"
+      cn: "VNA校准、S参数测量、PyVISA / SCPI、LabVIEW、Python"
   - label:
       en: "Languages"
       cn: "语言"
@@ -52,30 +60,100 @@ skills:
 
 projects:
   - title:
+      en: "Magnetic Semiconductor Isolator: Physics Modeling, Fabrication & Testing"
+      cn: "磁性半导体隔离器：物理建模、加工与测试"
+    subtitle:
+      en: "CST Studio Suite · Anisotropic Material Modeling · VNA"
+      cn: "CST Studio Suite · 各向异性材料建模 · VNA"
+    date: "Oct 2024 – Present"
+    bullets:
+      en:
+        - >-
+          Designed a semiconductor isolator combining ferrimagnetic YIG spheres
+          with board-level metamaterials; built the gyroelectric permittivity
+          tensor in CST using the Anisotropic Dielectric material type, and
+          examined how individual tensor components affect isolation and
+          insertion loss to bound the simulation parameter space.
+        - >-
+          Participated in sample fabrication and VNA measurement of the isolator;
+          compared measured nonreciprocity with simulation and traced deviations
+          to material-parameter uncertainty, bias-field uniformity, and
+          fabrication tolerance.
+        - >-
+          Based on YIG nonreciprocal effects and research on microwave
+          metamaterial nonreciprocity and Anderson localization, completed a
+          scientific paper.
+      cn:
+        - >-
+          设计亚铁磁性YIG小球和板级超材料结合的半导体器件(隔离器)。在CST中以Anisotropic
+          Dielectric材料类型建立旋电介电常数张量，分析各张量分量对隔离度与插入损耗的影响，
+          确定仿真参数范围。
+        - >-
+          参与隔离器样件制作与VNA测试，将实测非互易特性与仿真对比，分析偏差来源
+          （材料参数不确定性、偏置磁场均匀性、加工精度）。
+        - >-
+          基于YIG材料的非互易效应和微波超材料非互易、安德森局域等相关研究，完成科研论文。
+
+  - title:
       en: "Planar Microwave Filter & Waveguide Device Simulation"
       cn: "平面微波滤波器与波导器件仿真"
     subtitle:
-      en: "CST Studio Suite · Electromagnetic Simulation"
-      cn: "CST Studio Suite · 电磁仿真"
+      en: "CST Studio Suite · Filter Synthesis"
+      cn: "CST Studio Suite · 滤波器综合"
     date: "Mar 2021 – Sep 2023"
     bullets:
       en:
         - >-
           Modeled microstrip bandpass filters in CST and optimized their
-          S-parameters; compared Butterworth and Chebyshev responses in terms of
-          passband flatness and roll-off, and selected the design that met the
+          S-parameters; compared Butterworth and Chebyshev responses in passband
+          flatness and roll-off, and selected the design meeting the
           specifications.
         - >-
           Built a mapping flow from equivalent circuits to physical dimensions
           for ridge gap waveguide low-pass filters and split-ring resonator
           arrays, and verified return loss and insertion loss in the X-band.
+        - >-
+          Analyzed how routing geometry affects electromagnetic mode behavior
+          and established effective circuit matching improvements.
       cn:
         - >-
-          基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应在通带平坦度
-          与滚降速度上的差异，确定满足指标的设计方案。
+          基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应
+          在通带平坦度与滚降速度上的差异，确定满足指标的设计方案。
         - >-
           建立脊间隙波导低通滤波器和开口谐振环阵列等效电路与物理尺寸的映射流程，
           在X波段验证回波损耗与插入损耗指标。
+        - >-
+          分析布线几何特性对电磁波模式的影响，建立有效的电路匹配改良。
+
+  - title:
+      en: "Microwave PCB Design & Fabrication (including PCB Engraver Operation & Maintenance)"
+      cn: "微波PCB设计与加工（含PCB雕刻机使用与维护）"
+    subtitle:
+      en: "LPKF PCB Engraver · RF PCB Process"
+      cn: "乐普科雕板机 · 射频PCB工艺"
+    date: "Sep 2022 – Aug 2024"
+    bullets:
+      en:
+        - >-
+          Fabricated X-band microstrip filters on the LPKF engraver; controlled
+          tolerance and surface finish.
+        - >-
+          Carried out scheduled maintenance—spindle servicing, tool replacement,
+          platform calibration—troubleshot common faults, and kept maintenance
+          logs to stabilize machining quality.
+        - >-
+          Familiar with the standard PCB process flow (cutting → patterning →
+          testing); aware of how RF substrate parameters and copper foil
+          roughness affect insertion loss.
+      cn:
+        - >-
+          使用LPKF雕刻机制作X波段微带滤波器，控制公差与表面处理。
+        - >-
+          执行主轴保养、刀具更换、平台校准等定期维护，排查常见故障并记录维护日志，
+          稳定加工质量。
+        - >-
+          了解PCB标准工艺流程（开料→图形→测试），关注射频板材参数与铜箔粗糙度
+          对插损的影响。
 
   - title:
       en: "Network Analyzer (Agilent E5070) Control Programming"
@@ -100,36 +178,43 @@ projects:
           完成程序调试与仪器联调，提升射频测试的自动化程度与重复性。
 
   - title:
-      en: "Microwave PCB Design & Fabrication (including PCB Engraver Operation & Maintenance)"
-      cn: "微波PCB设计与加工（含PCB雕刻机使用与维护）"
+      en: "RF / Microwave Test System Setup & Automation"
+      cn: "射频微波测试系统搭建与自动化"
     subtitle:
-      en: "LPKF PCB Engraver · RF PCB Process"
-      cn: "乐普科雕板机 · 射频PCB工艺"
-    date: "Sep 2022 – Aug 2024"
+      en: "VNA · Oscilloscope · LabVIEW VISA"
+      cn: "VNA · 示波器 · LabVIEW VISA"
+    date: "Oct 2024 – Dec 2025"
     bullets:
       en:
         - >-
-          Operated the PCB engraver day to day, including parameter setup and
-          machining; carried out scheduled maintenance such as spindle
-          servicing, tool replacement, and platform calibration; troubleshot
-          common faults and kept maintenance logs.
-        - >-
-          Completed filter layout design, controlling line-width tolerance and
-          impedance to ensure simulation and measurement were comparable.
-        - >-
-          Familiar with the standard PCB process flow (cutting → patterning →
-          lamination → drilling → copper deposition → solder mask → surface
-          finish → testing); aware of how RF substrate parameters and copper
-          foil roughness affect insertion loss.
+          Built a test environment linking an oscilloscope with a VNA,
+          supporting joint time-domain and frequency-domain observation;
+          compiled automated measurement scripts for reuse across the lab.
       cn:
         - >-
-          负责PCB雕刻机的日常操作、参数设置与加工流程执行，执行主轴保养、刀具更换、
-          平台校准等定期维护，排查常见故障并记录维护日志。
+          搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本
+          供实验室复用。
+
+  - title:
+      en: "PhD Research: Metamaterials & Nonreciprocal Devices"
+      cn: "博士课题：超材料与非互易器件研究"
+    subtitle:
+      en: "Metamaterials · Microwave Nonreciprocal Devices"
+      cn: "超材料 · 微波非互易器件"
+    date: "2024 – Dec 2025"
+    bullets:
+      en:
         - >-
-          完成滤波器版图绘制，控制线宽公差与阻抗设计，保证仿真与实测的可对比性。
+          Conducted PhD research on metamaterials, covering experimental design,
+          data analysis, and paper writing.
         - >-
-          了解PCB标准工艺流程（开料→图形→压合→钻孔→沉铜→防焊→表面处理→测试），
-          关注射频板材参数与铜箔粗糙度对插损的影响。
+          Combined YIG nonreciprocal effects with microwave metamaterial
+          research to complete the related scientific papers.
+      cn:
+        - >-
+          围绕超材料方向开展博士课题研究，完成实验设计、数据分析与论文撰写。
+        - >-
+          结合YIG材料非互易效应与微波超材料研究，完成相关科研论文。
 
   - title:
       en: "Optical Table Laboratory Design & Setup"
@@ -142,14 +227,14 @@ projects:
       en:
         - >-
           Took part in the layout design and construction of an optical table
-          laboratory, covering the vibration-isolation platform, optical path
-          layout, power supply, and cabling.
+          laboratory, covering the vibration-isolation platform, power supply,
+          and cabling.
         - >-
           Coordinated equipment delivery, installation, and commissioning to
           ensure the lab met subsequent experimental requirements.
       cn:
         - >-
-          参与光学平台实验室布局设计与搭建，完成隔振平台、光路布局、供电与走线等基础环境建设。
+          参与光学平台实验室布局设计与搭建，完成隔振平台、供电与走线等基础环境建设。
         - >-
           协调设备进场、安装与调试，确保实验室满足后续实验需求。
 
@@ -197,82 +282,6 @@ projects:
           使用LabVIEW编写三维移动平台控制程序，实现运动控制、参数配置与数据采集等功能。
         - >-
           完成程序调试与联调，提升平台操作的自动化程度。
-
-  - title:
-      en: "Magnetic Semiconductor Isolator Fabrication & Testing"
-      cn: "磁性半导体隔离器加工测试"
-    subtitle:
-      en: "CST Studio Suite · Anisotropic Material Modeling"
-      cn: "CST Studio Suite · 各向异性材料建模"
-    date: "Oct 2024 – Present"
-    bullets:
-      en:
-        - >-
-          Fabricated and designed ferrite gyromagnetic devices; built the
-          gyroelectric permittivity tensor in CST using the Anisotropic
-          Dielectric material type for simulation and device design.
-        - >-
-          Based on the nonreciprocal effect of YIG materials and research on
-          microwave metamaterial nonreciprocity, completed a scientific paper.
-      cn:
-        - >-
-          铁氧体旋磁器件制作设计，在CST中以Anisotropic Dielectric材料类型建立旋电介电常数张量
-          进行仿真和器件的设计。
-        - >-
-          基于YIG材料的非互易效应和微波超材料非互易相关研究，完成科研论文。
-
-  - title:
-      en: "RF / Microwave Test System Setup & Automation"
-      cn: "射频微波测试系统搭建与自动化"
-    subtitle:
-      en: "VNA · Oscilloscope · PyVISA / SCPI"
-      cn: "VNA · 示波器 · PyVISA / SCPI"
-    date: "Oct 2024 – Dec 2025"
-    bullets:
-      en:
-        - >-
-          Built a test environment that links an oscilloscope with a VNA,
-          supporting joint time-domain and frequency-domain observation, and
-          compiled automated measurement scripts for reuse across the lab.
-      cn:
-        - >-
-          搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本供实验室复用。
-
-  - title:
-      en: "PhD Research: Metamaterials & Paper Writing"
-      cn: "博士课题：超材料方向研究与论文撰写"
-    subtitle:
-      en: "Metamaterials · Microwave Nonreciprocal Devices"
-      cn: "超材料 · 微波非互易器件"
-    date: "2024 – Dec 2025"
-    bullets:
-      en:
-        - >-
-          Conducted PhD research on metamaterials, covering experimental design,
-          data analysis, and paper writing.
-        - >-
-          Combined YIG nonreciprocal effects with microwave metamaterial
-          research to complete the related scientific papers.
-      cn:
-        - >-
-          围绕超材料方向开展博士课题研究，完成实验设计、数据分析与论文撰写。
-        - >-
-          结合YIG材料非互易效应与微波超材料研究，完成相关科研论文。
-
-  - title:
-      en: "PhD Dissertation Writing & Manuscript Revision"
-      cn: "博士论文撰写及小论文回稿"
-    subtitle:
-      en: "Dissertation · Manuscript Revision"
-      cn: "学位论文 · 论文返修"
-    date: "2026 – Present"
-    bullets:
-      en:
-        - "Completing the writing and organization of the PhD dissertation."
-        - "Handling manuscript revision and resubmission."
-      cn:
-        - "完成博士论文撰写与整理工作。"
-        - "处理小论文返修与回稿工作。"
 
 training:
   - title:
@@ -343,8 +352,8 @@ education:
       en: "BSc in Physics"
       cn: "物理学 本科"
     subtitle:
-      en: "Zhejiang University · GPA 3.0/5.0"
-      cn: "浙江大学 · GPA 3.0/5.0"
+      en: "Zhejiang University · GPA 3.24/5.0"
+      cn: "浙江大学 · GPA 3.24/5.0"
     date: "2016 – 2020"
     bullets:
       en: []
