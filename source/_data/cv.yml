@@ -50,7 +50,7 @@ skills:
       cn: "测试与自动化"
     value:
       en: "VNA calibration, S-parameter measurement, PyVISA / SCPI, LabVIEW, Python"
-      cn: "VNA校准、S参数测量、VISA通信、LabVIEW、Python"
+      cn: "VNA校准、S参数测量、VISA / SCPI、LabVIEW、Python"
   - label:
       en: "Languages"
       cn: "语言"
@@ -63,8 +63,8 @@ projects:
       en: "Magnetic Semiconductor Isolator: Physics Modeling, Fabrication & Testing"
       cn: "磁性半导体隔离器：物理建模、加工与测试"
     subtitle:
-      en: "CST Studio Suite · Anisotropic Material Modeling · VNA"
-      cn: "CST Studio Suite · 各向异性材料建模 · VNA"
+      en: "CST Studio Suite · Anisotropic Material Modeling · VNA · Metamaterials"
+      cn: "CST Studio Suite · 各向异性材料建模 · VNA · 超材料"
     date: "Oct 2024 – Present"
     bullets:
       en:
@@ -82,7 +82,12 @@ projects:
         - >-
           Based on YIG nonreciprocal effects and research on microwave
           metamaterial nonreciprocity and Anderson localization, completed a
-          scientific paper.
+          scientific paper (see Publication).
+        - >-
+          Conducted PhD research on metamaterials, covering experimental design,
+          data analysis, and paper writing; combined YIG nonreciprocal effects
+          with microwave metamaterial research to complete the related
+          scientific papers.
       cn:
         - >-
           设计亚铁磁性YIG小球和板级超材料结合的半导体器件(隔离器)。在CST中以Anisotropic
@@ -92,15 +97,19 @@ projects:
           参与隔离器样件制作与VNA测试，将实测非互易特性与仿真对比，分析偏差来源
           （材料参数不确定性、偏置磁场均匀性、加工精度）。
         - >-
-          基于YIG材料的非互易效应和微波超材料非互易、安德森局域等相关研究，完成科研论文。
+          基于YIG材料的非互易效应和微波超材料非互易、安德森局域等相关研究，完成科研论文
+          （见学术成果）。
+        - >-
+          围绕超材料方向开展博士课题研究，完成实验设计、数据分析与论文撰写；
+          结合YIG材料非互易效应与微波超材料研究，完成相关科研论文。
 
   - title:
-      en: "Planar Microwave Filter & Waveguide Device Simulation"
-      cn: "平面微波滤波器与波导器件仿真"
+      en: "Planar Microwave Filter / Waveguide Simulation & Microwave PCB Fabrication"
+      cn: "平面微波滤波器/波导仿真与微波PCB加工"
     subtitle:
-      en: "CST Studio Suite · Filter Synthesis"
-      cn: "CST Studio Suite · 滤波器综合"
-    date: "Mar 2021 – Sep 2023"
+      en: "CST Studio Suite · Filter Synthesis · LPKF PCB Engraver · RF PCB Process"
+      cn: "CST Studio Suite · 滤波器综合 · 乐普科雕板机 · 射频PCB工艺"
+    date: "Mar 2021 – Aug 2024"
     bullets:
       en:
         - >-
@@ -115,6 +124,16 @@ projects:
         - >-
           Analyzed how routing geometry affects electromagnetic mode behavior
           and established effective circuit matching improvements.
+        - >-
+          Fabricated X-band microstrip filters on the LPKF engraver; controlled
+          tolerance and surface finish, and carried out scheduled
+          maintenance—spindle servicing, tool replacement, platform
+          calibration—troubleshot common faults, and kept maintenance logs to
+          stabilize machining quality.
+        - >-
+          Familiar with the standard PCB process flow (cutting → patterning →
+          testing); aware of how RF substrate parameters and copper foil
+          roughness affect insertion loss.
       cn:
         - >-
           基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应
@@ -124,165 +143,65 @@ projects:
           在X波段验证回波损耗与插入损耗指标。
         - >-
           分析布线几何特性对电磁波模式的影响，建立有效的电路匹配改良。
-
-  - title:
-      en: "Microwave PCB Design & Fabrication (including PCB Engraver Operation & Maintenance)"
-      cn: "微波PCB设计与加工（含PCB雕刻机使用与维护）"
-    subtitle:
-      en: "LPKF PCB Engraver · RF PCB Process"
-      cn: "乐普科雕板机 · 射频PCB工艺"
-    date: "Sep 2022 – Aug 2024"
-    bullets:
-      en:
         - >-
-          Fabricated X-band microstrip filters on the LPKF engraver; controlled
-          tolerance and surface finish.
-        - >-
-          Carried out scheduled maintenance—spindle servicing, tool replacement,
-          platform calibration—troubleshot common faults, and kept maintenance
-          logs to stabilize machining quality.
-        - >-
-          Familiar with the standard PCB process flow (cutting → patterning →
-          testing); aware of how RF substrate parameters and copper foil
-          roughness affect insertion loss.
-      cn:
-        - >-
-          使用LPKF雕刻机制作X波段微带滤波器，控制公差与表面处理。
-        - >-
-          执行主轴保养、刀具更换、平台校准等定期维护，排查常见故障并记录维护日志，
-          稳定加工质量。
+          使用LPKF雕刻机制作X波段微带滤波器，控制公差与表面处理；执行主轴保养、
+          刀具更换、平台校准等定期维护，排查常见故障并记录维护日志，稳定加工质量。
         - >-
           了解PCB标准工艺流程（开料→图形→测试），关注射频板材参数与铜箔粗糙度
           对插损的影响。
 
   - title:
-      en: "Network Analyzer (Agilent E5070) Control Programming"
-      cn: "网络分析仪（Agilent E5070）使用程序编写"
+      en: "RF Test System Setup, Instrument Control & Lab Automation"
+      cn: "射频测试系统搭建、仪器控制与实验室自动化"
     subtitle:
-      en: "Agilent E5070 · Instrument Control & Data Acquisition"
-      cn: "Agilent E5070 · 仪器控制与数据采集"
-    date: "Jun 2022 – Aug 2022"
+      en: "Agilent E5070 · VNA · Oscilloscope · LabVIEW VISA · Python"
+      cn: "Agilent E5070 · VNA · 示波器 · LabVIEW VISA · Python"
+    date: "Jun 2022 – Dec 2025"
     bullets:
       en:
         - >-
           Wrote control programs for the Agilent E5070 network analyzer,
           covering instrument parameter configuration, S-parameter acquisition,
-          and result export.
-        - >-
-          Debugged and integrated the programs with the instrument, improving
-          the automation and repeatability of RF testing.
-      cn:
-        - >-
-          编写网络分析仪E5070的使用与控制程序，实现仪器参数配置、S参数采集与结果导出等功能。
-        - >-
-          完成程序调试与仪器联调，提升射频测试的自动化程度与重复性。
-
-  - title:
-      en: "RF / Microwave Test System Setup & Automation"
-      cn: "射频微波测试系统搭建与自动化"
-    subtitle:
-      en: "VNA · Oscilloscope · LabVIEW VISA"
-      cn: "VNA · 示波器 · LabVIEW VISA"
-    date: "Oct 2024 – Dec 2025"
-    bullets:
-      en:
+          and result export; debugged and integrated the programs with the
+          instrument, improving the automation and repeatability of RF testing.
         - >-
           Built a test environment linking an oscilloscope with a VNA,
           supporting joint time-domain and frequency-domain observation;
           compiled automated measurement scripts for reuse across the lab.
-      cn:
-        - >-
-          搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本
-          供实验室复用。
-
-  - title:
-      en: "PhD Research: Metamaterials & Nonreciprocal Devices"
-      cn: "博士课题：超材料与非互易器件研究"
-    subtitle:
-      en: "Metamaterials · Microwave Nonreciprocal Devices"
-      cn: "超材料 · 微波非互易器件"
-    date: "2024 – Dec 2025"
-    bullets:
-      en:
-        - >-
-          Conducted PhD research on metamaterials, covering experimental design,
-          data analysis, and paper writing.
-        - >-
-          Combined YIG nonreciprocal effects with microwave metamaterial
-          research to complete the related scientific papers.
-      cn:
-        - >-
-          围绕超材料方向开展博士课题研究，完成实验设计、数据分析与论文撰写。
-        - >-
-          结合YIG材料非互易效应与微波超材料研究，完成相关科研论文。
-
-  - title:
-      en: "Optical Table Laboratory Design & Setup"
-      cn: "光学平台实验室设计搭建"
-    subtitle:
-      en: "Optical Table · Lab Construction"
-      cn: "光学平台 · 实验室建设"
-    date: "Feb 2023 – May 2023"
-    bullets:
-      en:
-        - >-
-          Took part in the layout design and construction of an optical table
-          laboratory, covering the vibration-isolation platform, power supply,
-          and cabling.
-        - >-
-          Coordinated equipment delivery, installation, and commissioning to
-          ensure the lab met subsequent experimental requirements.
-      cn:
-        - >-
-          参与光学平台实验室布局设计与搭建，完成隔振平台、供电与走线等基础环境建设。
-        - >-
-          协调设备进场、安装与调试，确保实验室满足后续实验需求。
-
-  - title:
-      en: "FTP-based Lab Data Storage & Transfer System"
-      cn: "基于FTP的实验室数据储存与传输系统搭建"
-    subtitle:
-      en: "FTP · Data Management"
-      cn: "FTP · 数据管理"
-    date: "May 2023 – Jun 2023"
-    bullets:
-      en:
-        - >-
-          Set up an FTP-based data storage and transfer system for the lab,
-          configuring the server, user permissions, and directory structure to
-          centralize experiment data management and sharing.
-        - >-
-          Defined data backup and transfer protocols, improving data security
-          and team collaboration efficiency.
-      cn:
-        - >-
-          搭建基于FTP协议的实验室数据存储与传输系统，配置服务器、用户权限与目录结构，
-          实现实验数据集中管理与共享。
-        - >-
-          制定数据备份与传输规范，提升数据安全性与团队协作效率。
-
-  - title:
-      en: "3D Motion Platform LabVIEW Programming"
-      cn: "三维移动平台LabVIEW程序编写"
-    subtitle:
-      en: "LabVIEW · Motion Control"
-      cn: "LabVIEW · 运动控制"
-    date: "Jun 2023 – Sep 2023"
-    bullets:
-      en:
         - >-
           Developed LabVIEW programs to control a 3D motion platform,
           implementing motion control, parameter configuration, and data
-          acquisition.
+          acquisition; debugged and integrated the programs to make platform
+          operation more automated.
         - >-
-          Debugged and integrated the programs, making platform operation more
-          automated.
+          Set up an FTP-based data storage and transfer system for the lab,
+          configuring the server, user permissions, and directory structure to
+          centralize experiment data management and sharing; defined data backup
+          and transfer protocols, improving data security and team collaboration
+          efficiency.
+        - >-
+          Took part in the layout design and construction of an optical table
+          laboratory, covering the vibration-isolation platform, power supply,
+          and cabling; coordinated equipment delivery, installation, and
+          commissioning to ensure the lab met subsequent experimental
+          requirements.
       cn:
         - >-
-          使用LabVIEW编写三维移动平台控制程序，实现运动控制、参数配置与数据采集等功能。
+          编写网络分析仪E5070的使用与控制程序，实现仪器参数配置、S参数采集与结果导出等功能；
+          完成程序调试与仪器联调，提升射频测试的自动化程度与重复性。
         - >-
+          搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本
+          供实验室复用。
+        - >-
+          使用LabVIEW编写三维移动平台控制程序，实现运动控制、参数配置与数据采集等功能；
           完成程序调试与联调，提升平台操作的自动化程度。
-
+        - >-
+          搭建基于FTP协议的实验室数据存储与传输系统，配置服务器、用户权限与目录结构，
+          实现实验数据集中管理与共享；制定数据备份与传输规范，提升数据安全性与团队协作效率。
+        - >-
+          参与光学平台实验室布局设计与搭建，完成隔振平台、供电与走线等基础环境建设；
+          协调设备进场、安装与调试，确保实验室满足后续实验需求。
+          
 training:
   - title:
       en: "Metalworking Practice & Engineering Drawing"
