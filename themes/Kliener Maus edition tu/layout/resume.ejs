@@ -316,6 +316,10 @@
     margin: 16mm 14mm;
   }
 
+  #sidebuttom {
+display: none
+  }
+
   html {
     font-size: 12pt; /* 基准字号，比屏幕略大，打印清晰 */
   }
@@ -548,7 +552,7 @@
     </div>
     <div id="navBuffer"></div>
     <div id="main">
-      <span style="position:fixed;padding:40px;font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <span id="sidebuttom" style="position:fixed;padding:40px;font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
       <div class="lang-switch">
         <button type="button" id="btn-en" class="active">EN</button>
         <button type="button" id="btn-cn">中文</button>
