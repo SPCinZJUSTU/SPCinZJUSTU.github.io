@@ -50,7 +50,7 @@ skills:
       cn: "测试与自动化"
     value:
       en: "VNA calibration, S-parameter measurement, PyVISA / SCPI, LabVIEW, Python"
-      cn: "VNA校准、S参数测量、PyVISA / SCPI、LabVIEW、Python"
+      cn: "VNA校准、S参数测量、VISA通信、LabVIEW、Python"
   - label:
       en: "Languages"
       cn: "语言"
