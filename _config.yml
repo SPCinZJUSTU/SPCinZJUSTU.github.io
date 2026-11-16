@@ -24,6 +24,7 @@ pretty_urls:
 source_dir: source
 public_dir: public
 tag_dir: tags
+music_dir: music
 archive_dir: archives
 index_dir: index
 category_dir: categories
@@ -102,3 +103,13 @@ theme: Kliener Maus edition tu
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+aplayer:
+  meting: true
+  asset_inject: false   # 关闭自动注入，防止和主题注入冲突或重复加载
+
+
+music:
+  server: 'neteasae'
+  playlistId: '826128647'
+  apiUrl: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=' 

@@ -1,0 +1,23 @@
+<div class="exp-item">
+  <div class="exp-header">
+    <span class="exp-title">
+      <span class="lang-en"><%= item.title.en %></span>
+      <span class="lang-cn"><%= item.title.cn %></span>
+    </span>
+    <span class="exp-date"><%= item.date %></span>
+  </div>
+  <div class="exp-sub">
+    <span class="lang-en"><%= item.subtitle.en %></span>
+    <span class="lang-cn"><%= item.subtitle.cn %></span>
+  </div>
+  <% if (item.bullets.en.length || item.bullets.cn.length) { %>
+  <ul class="exp-desc">
+    <% item.bullets.en.forEach(function (b) { %>
+      <li class="lang-en"><%= b %></li>
+    <% }); %>
+    <% item.bullets.cn.forEach(function (b) { %>
+      <li class="lang-cn"><%= b %></li>
+    <% }); %>
+  </ul>
+  <% } %>
+</div>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume · Pei-Cheng Sun</title>
+  <style>
+    /* ===== 简洁学术风，纯白底，细线分隔，保留头像 ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #ffffff;
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2.5rem 1rem;
+      line-height: 1.5;
+    }
+
+    .resume {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    /* ===== 语言切换按钮（极简） ===== */
+    .lang-switch {
+      position: absolute;
+      top: -1rem;
+      right: 0;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .lang-switch button {
+      border: none;
+      background: none;
+      color: #777;
+      font-family: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .lang-switch button:hover { color: #000; }
+    .lang-switch button.active {
+      color: #000;
+      border-bottom: 1px solid #000;
+    }
+
+    /* ===== 头部：头像 + 姓名，保留格子 ===== */
+    .header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+      min-height: 130px;
+    }
+
+    /* 头像：椭圆格子，左移，不占水平空间 */
+    .avatar {
+      width: 100px;
+      height: 140px;
+      border-radius: 50% / 50%;
+      background: #ffffff;
+      border: 1.5px solid #aaa;
+      position: absolute;
+      left: 0;
+      top: -8px;
+      overflow: hidden;
+      box-shadow: none;
+      z-index: 2;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .header-text {
+      margin-left: 130px;
+      padding-top: 0.6rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .header .subhead {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #555;
+      font-style: italic;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 1.2rem;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 0.7rem;
+      margin-left: 130px;
+    }
+
+    .contact-row a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px dotted #aaa;
+    }
+
+    .contact-row a:hover { border-bottom-style: solid; }
+
+    /* ===== 章节 ===== */
+    .section {
+      margin-top: 1.4rem;
+    }
+
+    .section h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a1a1a;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .profile-text {
+      font-size: 0.95rem;
+      text-align: justify;
+      color: #222;
+    }
+
+    /* ===== 技能：紧凑行式 ===== */
+    .skill-line {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: #222;
+    }
+
+    .skill-line b { font-weight: 600; }
+
+    /* ===== 经历条目 ===== */
+    .exp-item {
+      margin-bottom: 0.9rem;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.2rem 0.8rem;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      font-size: 0.97rem;
+      color: #1a1a1a;
+    }
+
+    .exp-sub {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.1rem;
+    }
+
+    .exp-date {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .exp-desc {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+
+    .exp-desc li {
+      display: flex;
+      gap: 0.55rem;
+      font-size: 0.92rem;
+      color: #222;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-desc li::before {
+      content: "•";
+      flex-shrink: 0;
+      color: #333;
+    }
+
+    /* ===== 教育 ===== */
+    .edu-item {
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.2rem 0.8rem;
+    }
+
+    .edu-title { font-weight: 600; font-size: 0.97rem; color: #1a1a1a; }
+    .edu-date { font-size: 0.88rem; font-style: italic; color: #444; white-space: nowrap; }
+    .edu-sub { font-size: 0.9rem; font-style: italic; color: #555; }
+
+    /* ===== 论文 ===== */
+    .pub-item {
+      font-size: 0.92rem;
+      text-align: justify;
+      color: #222;
+    }
+
+    .pub-item a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px dotted #aaa;
+      word-break: break-word;
+    }
+
+    /* ===== 中英文切换 ===== */
+    .lang-en, .lang-cn { display: none; }
+
+    .exp-desc li.lang-en,
+    .exp-desc li.lang-cn { display: none; }
+
+    body.lang-en-active .lang-en { display: block; }
+    body.lang-en-active span.lang-en { display: inline; }
+    body.lang-en-active .exp-desc li.lang-en { display: flex; }
+
+    body.lang-cn-active .lang-cn { display: block; }
+    body.lang-cn-active span.lang-cn { display: inline; }
+    body.lang-cn-active .exp-desc li.lang-cn { display: flex; }
+
+    /* ===== 打印 ===== */
+    @media print {
+      @page { size: A4 portrait; margin: 18mm 16mm; }
+
+      body { padding: 0; display: block; background: #fff; }
+      .resume { max-width: none; width: 100%; }
+      .lang-switch { display: none !important; }
+
+      .exp-item { page-break-inside: avoid; break-inside: avoid; }
+      h2 { page-break-after: avoid; break-after: avoid; }
+      .exp-header { page-break-after: avoid; break-after: avoid; }
+    }
+
+    /* ===== 小屏 ===== */
+    @media (max-width: 600px) {
+      .resume { font-size: 0.92rem; }
+      .header h1 { font-size: 1.6rem; }
+      .avatar { width: 80px; height: 110px; top: -6px; }
+      .header-text, .contact-row { margin-left: 100px; }
+      .exp-header, .edu-header { flex-direction: column; align-items: flex-start; gap: 0.05rem; }
+      .lang-switch { top: -0.8rem; }
+    }
+
+    @media (max-width: 450px) {
+      .header { min-height: auto; text-align: left; padding-left: 0; }
+      .avatar {
+        position: relative;
+        left: 0; top: 0;
+        margin: 0 0 0.8rem 0;
+        width: 80px; height: 110px;
+      }
+      .header-text, .contact-row { margin-left: 0; }
+      .contact-row { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body class="lang-en-active">
+
+  <div class="resume">
+
+    <!-- 语言切换 -->
+    <div class="lang-switch">
+      <button type="button" id="btn-en" class="active">EN</button>
+      <button type="button" id="btn-cn">中文</button>
+    </div>
+
+    <!-- ================= 头部 ================= -->
+    <div class="header">
+      <div class="avatar">
+        <img src="../img/portrait.jpg" alt="Profile photo">
+      </div>
+
+      <div class="header-text lang-en">
+        <h1>Pei-Cheng Sun</h1>
+        <div class="subhead">RF / Microwave Engineer</div>
+      </div>
+      <div class="header-text lang-cn">
+        <h1>孙 培 诚</h1>
+        <div class="subhead">射频微波工程师</div>
+      </div>
+
+      <div class="contact-row">
+        <span>+86 138 6802 5704</span>
+        <span>12445058@zju.edu.cn</span>
+        <span>
+          <span class="lang-en">Hangzhou, Zhejiang</span>
+          <span class="lang-cn">浙江 · 杭州</span>
+        </span>
+        <span><a href="https://spcinzjustu.github.io" target="_blank">spcinzjustu.github.io</a></span>
+      </div>
+    </div>
+
+    <!-- ================= 个人简介 ================= -->
+    <div class="section">
+      <div class="lang-en">
+        <h2>Profile</h2>
+        <p class="profile-text">
+          PhD researcher in microwave metasurfaces with hands-on experience in planar microwave device simulation,
+          magnetic semiconductor metamaterial modeling, RF test automation, and PCB fabrication. Proficient in CST
+          Studio Suite full-wave simulation, capable of independently building VNA measurement systems, and familiar
+          with microwave substrate selection and fabrication constraints up to 20 GHz.
+        </p>
+      </div>
+      <div class="lang-cn">
+        <h2>个人简介</h2>
+        <p class="profile-text">
+          微波超表面博士研究生，具备平面微波器件仿真、磁性半导体超材料建模、射频测试自动化及PCB工艺的项目经验。
+          熟悉CST Studio Suite全波仿真流程，能够独立完成VNA测量系统搭建，20 GHz以内微波板材选型与加工约束。
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= 技能与语言 ================= -->
+    <div class="section">
+      <div class="lang-en"><h2>Skills & Languages</h2></div>
+      <div class="lang-cn"><h2>专业技能 & 语言能力</h2></div>
+
+      <div class="skill-line"><b>Simulation:</b> CST Studio Suite, Anisotropic Material Modeling</div>
+      <div class="skill-line"><b>Programming:</b> Python, LabVIEW, PyVISA / SCPI</div>
+      <div class="skill-line"><b>RF & PCB:</b> VNA Calibration, PCB Process</div>
+      <div class="skill-line">
+        <b><span class="lang-en">Languages</span><span class="lang-cn">语言</span>:</b>
+        <span class="lang-en">English (CET-6 · 553)</span>
+        <span class="lang-cn">英语（CET-6 · 553）</span>
+      </div>
+    </div>
+
+    <!-- ================= 项目经验 ================= -->
+    <div class="section">
+      <div class="lang-en"><h2>Project Experience</h2></div>
+      <div class="lang-cn"><h2>项目经验</h2></div>
+
+      <!-- 项目1 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Planar Microwave Filter & Waveguide Device Simulation</span>
+            <span class="lang-cn">平面微波滤波器与波导器件仿真</span>
+          </span>
+          <span class="exp-date">Mar 2021 – Sep 2023</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">CST Studio Suite · Electromagnetic Simulation</span>
+          <span class="lang-cn">CST Studio Suite · 电磁仿真</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Modeled and optimized S-parameters of microstrip bandpass filters in CST; compared Butterworth and Chebyshev responses to determine the design meeting specifications.</li>
+          <li class="lang-en">Established a mapping flow between equivalent circuits and physical dimensions for ridge gap waveguide filters and split-ring resonator arrays; verified return loss and insertion loss in X-band.</li>
+          <li class="lang-cn">基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应差异，确定满足指标的设计方案。</li>
+          <li class="lang-cn">建立脊间隙波导低通滤波器和开口谐振环阵列等效电路与物理尺寸的映射流程，在X波段验证回波损耗与插入损耗指标。</li>
+        </ul>
+      </div>
+
+      <!-- 项目2 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Network Analyzer (Agilent E5070) Control Programming</span>
+            <span class="lang-cn">网络分析仪（Agilent E5070）使用程序编写</span>
+          </span>
+          <span class="exp-date">Jun 2022 – Aug 2022</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">Agilent E5070 · Instrument Control & Data Acquisition</span>
+          <span class="lang-cn">Agilent E5070 · 仪器控制与数据采集</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Developed control programs for the E5070 network analyzer, enabling parameter configuration, S-parameter acquisition, and result export.</li>
+          <li class="lang-en">Debugged and integrated the program with the instrument, improving automation and repeatability of RF testing.</li>
+          <li class="lang-cn">编写网络分析仪E5070的使用与控制程序，实现仪器参数配置、S参数采集与结果导出等功能。</li>
+          <li class="lang-cn">完成程序调试与仪器联调，提升射频测试的自动化程度与重复性。</li>
+        </ul>
+      </div>
+
+      <!-- 项目3 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Microwave PCB Design & Fabrication</span>
+            <span class="lang-cn">微波PCB设计与加工</span>
+          </span>
+          <span class="exp-date">Sep 2022 – Aug 2024</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">LPKF PCB Engraver · RF PCB Process</span>
+          <span class="lang-cn">乐普科雕板机 · 射频PCB工艺</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Operated PCB engraver daily; performed spindle maintenance, tool replacement, and platform calibration; troubleshot common faults.</li>
+          <li class="lang-en">Completed filter layout design, controlling line width tolerance and impedance to ensure simulation-measurement comparability.</li>
+          <li class="lang-en">Familiar with standard PCB processes; aware of RF substrate parameters and copper foil roughness effects on insertion loss.</li>
+          <li class="lang-cn">负责PCB雕刻机的日常操作、参数设置与加工流程执行，执行主轴保养、刀具更换、平台校准等定期维护。</li>
+          <li class="lang-cn">完成滤波器版图绘制，控制线宽公差与阻抗设计，保证仿真与实测的可对比性。</li>
+          <li class="lang-cn">了解PCB标准工艺流程，关注射频板材参数与铜箔粗糙度对插损的影响。</li>
+        </ul>
+      </div>
+
+      <!-- 项目4 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Optical Table Laboratory Design & Setup</span>
+            <span class="lang-cn">光学平台实验室设计搭建</span>
+          </span>
+          <span class="exp-date">Feb 2023 – May 2023</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">Optical Table · Lab Construction</span>
+          <span class="lang-cn">光学平台 · 实验室建设</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Participated in layout design and construction of the optical table lab, including vibration isolation platform, optical path layout, power supply, and cabling.</li>
+          <li class="lang-en">Coordinated equipment delivery, installation, and commissioning.</li>
+          <li class="lang-cn">参与光学平台实验室布局设计与搭建，完成隔振平台、光路布局、供电与走线等基础环境建设。</li>
+          <li class="lang-cn">协调设备进场、安装与调试，确保实验室满足后续实验需求。</li>
+        </ul>
+      </div>
+
+      <!-- 项目5 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">FTP-based Lab Data Storage & Transfer System</span>
+            <span class="lang-cn">基于FTP的实验室数据储存与传输系统搭建</span>
+          </span>
+          <span class="exp-date">May 2023 – Jun 2023</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">FTP · Data Management</span>
+          <span class="lang-cn">FTP · 数据管理</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Built an FTP-based lab data storage and transfer system; configured server, user permissions, and directory structure.</li>
+          <li class="lang-en">Established data backup and transfer protocols to improve data security and collaboration efficiency.</li>
+          <li class="lang-cn">搭建基于FTP协议的实验室数据存储与传输系统，配置服务器、用户权限与目录结构。</li>
+          <li class="lang-cn">制定数据备份与传输规范，提升数据安全性与团队协作效率。</li>
+        </ul>
+      </div>
+
+      <!-- 项目6 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">3D Motion Platform LabVIEW Programming</span>
+            <span class="lang-cn">三维移动平台LabVIEW程序编写</span>
+          </span>
+          <span class="exp-date">Jun 2023 – Sep 2023</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">LabVIEW · Motion Control</span>
+          <span class="lang-cn">LabVIEW · 运动控制</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Developed LabVIEW programs for 3D motion platform control, implementing motion control, parameter configuration, and data acquisition.</li>
+          <li class="lang-en">Debugged and integrated the program to improve platform automation.</li>
+          <li class="lang-cn">使用LabVIEW编写三维移动平台控制程序，实现运动控制、参数配置与数据采集等功能。</li>
+          <li class="lang-cn">完成程序调试与联调，提升平台操作的自动化程度。</li>
+        </ul>
+      </div>
+
+      <!-- 项目7 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Magnetic Semiconductor Isolator Fabrication & Testing</span>
+            <span class="lang-cn">磁性半导体隔离器加工测试</span>
+          </span>
+          <span class="exp-date">Oct 2024 – Present</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">CST Studio Suite · Anisotropic Material Modeling</span>
+          <span class="lang-cn">CST Studio Suite · 各向异性材料建模</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Distinguished ferrite gyromagnetic and magnetic-semiconductor gyroelectric models; established the gyroelectric permittivity tensor in CST to avoid template-induced errors.</li>
+          <li class="lang-en">Completed a scientific paper based on YIG nonreciprocal effects and microwave metamaterial research.</li>
+          <li class="lang-cn">区分铁氧体旋磁模型与磁性半导体旋电模型的物理差异，在CST中以Anisotropic Dielectric类型建立旋电介电常数张量。</li>
+          <li class="lang-cn">基于YIG材料非互易效应和微波超材料非互易研究，完成科研论文。</li>
+        </ul>
+      </div>
+
+      <!-- 项目8 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">RF / Microwave Test System Setup & Automation</span>
+            <span class="lang-cn">射频微波测试系统搭建与自动化</span>
+          </span>
+          <span class="exp-date">Oct 2024 – Dec 2025</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">VNA · Oscilloscope · PyVISA / SCPI</span>
+          <span class="lang-cn">VNA · 示波器 · PyVISA / SCPI</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Built a synchronized oscilloscope-VNA test environment supporting joint time- and frequency-domain observation; compiled reusable automation scripts.</li>
+          <li class="lang-cn">搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本供实验室复用。</li>
+        </ul>
+      </div>
+
+      <!-- 项目9 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">PhD Research: Metamaterials & Paper Writing</span>
+            <span class="lang-cn">博士课题：超材料方向研究与论文撰写</span>
+          </span>
+          <span class="exp-date">2024 – Dec 2025</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">Metamaterials · Microwave Nonreciprocal Devices</span>
+          <span class="lang-cn">超材料 · 微波非互易器件</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Conducted PhD research on metamaterials, covering experimental design, data analysis, and paper writing.</li>
+          <li class="lang-en">Combined YIG nonreciprocal effects with microwave metamaterial research to complete scientific papers.</li>
+          <li class="lang-cn">围绕超材料方向开展博士课题研究，完成实验设计、数据分析与论文撰写。</li>
+          <li class="lang-cn">结合YIG材料非互易效应与微波超材料研究，完成相关科研论文。</li>
+        </ul>
+      </div>
+
+      <!-- 项目10 -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">PhD Dissertation Writing & Manuscript Revision</span>
+            <span class="lang-cn">博士论文撰写及小论文回稿</span>
+          </span>
+          <span class="exp-date">2026 – Present</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">Dissertation · Manuscript Revision</span>
+          <span class="lang-cn">学位论文 · 论文返修</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Completing PhD dissertation writing and organization.</li>
+          <li class="lang-en">Handling manuscript revision and resubmission.</li>
+          <li class="lang-cn">完成博士论文撰写与整理工作。</li>
+          <li class="lang-cn">处理小论文返修与回稿工作。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= 机械与工程训练 ================= -->
+    <div class="section">
+      <div class="lang-en"><h2>Mechanical & Engineering Training</h2></div>
+      <div class="lang-cn"><h2>机械与工程训练</h2></div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Metalworking Practice & Engineering Drawing</span>
+            <span class="lang-cn">金工实习与工程制图</span>
+          </span>
+          <span class="exp-date">Sep 2023 – Jan 2024</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">Mechanical Manufacturing Basics · Structural Design</span>
+          <span class="lang-cn">机械制造基础 · 结构设计</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Completed basic machining training in turning, milling, and manual arc welding.</li>
+          <li class="lang-en">Mastered engineering drawing standards; able to translate electromagnetic simulation models of passive microwave devices into machinable drawings.</li>
+          <li class="lang-cn">完成车工、铣工、手工电弧焊等基础工程训练。</li>
+          <li class="lang-cn">掌握工程制图规范，具备将微波无源器件仿真模型转化为可加工图纸的能力。</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">
+            <span class="lang-en">Micro-Nano Fabrication Center Training</span>
+            <span class="lang-cn">微纳加工中心培训</span>
+          </span>
+          <span class="exp-date">Jan 2024</span>
+        </div>
+        <div class="exp-sub">
+          <span class="lang-en">Micro-Nano Fabrication · Equipment Operation</span>
+          <span class="lang-cn">微纳加工工艺 · 设备操作</span>
+        </div>
+        <ul class="exp-desc">
+          <li class="lang-en">Attended specialized training on micro-nano fabrication equipment operation and process standards.</li>
+          <li class="lang-cn">参加微纳加工中心专项培训，学习设备操作流程与工艺规范。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= 学术成果 ================= -->
+    <div class="section">
+      <div class="lang-en"><h2>Publication</h2></div>
+      <div class="lang-cn"><h2>学术成果</h2></div>
+      <p class="pub-item">
+        Pei-Cheng Sun, Qi Hong, Zong-Heng Meng, Xin Zhang, Yifei Zhang, Zhiwei Guo, Yi-Pu Wang.
+        Strong coupling between magnons and Anderson-localized microwave photons.
+        <i>APL Quantum</i>, 3(3): 036112, Sep 2026.
+        <a href="https://doi.org/10.1063/5.0349720" target="_blank">https://doi.org/10.1063/5.0349720</a>
+      </p>
+    </div>
+
+    <!-- ================= 教育经历 ================= -->
+    <div class="section">
+      <div class="lang-en"><h2>Education</h2></div>
+      <div class="lang-cn"><h2>教育经历</h2></div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="edu-title">
+            <span class="lang-en">PhD in Quantum Hybrid Systems (Cavity Magnonics)</span>
+            <span class="lang-cn">量子混合系统（腔磁振子）博士</span>
+          </span>
+          <span class="edu-date">2021 – Present</span>
+        </div>
+        <div class="edu-sub">
+          <span class="lang-en">Zhejiang University · Cavity Magnonics</span>
+          <span class="lang-cn">浙江大学 · 腔磁振子</span>
+        </div>
+        <ul class="exp-desc" style="margin-top:0.15rem;">
+          <li class="lang-en">Research interests: magnetic semiconductor microwave nonreciprocal devices, planar filter design.</li>
+          <li class="lang-cn">研究方向：磁性半导体微波非互易器件、平面滤波器设计。</li>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="edu-title">
+            <span class="lang-en">BSc in Physics</span>
+            <span class="lang-cn">物理学 本科</span>
+          </span>
+          <span class="edu-date">2016 – 2020</span>
+        </div>
+        <div class="edu-sub">
+          <span class="lang-en">Zhejiang University · GPA 3.0/5.0</span>
+          <span class="lang-cn">浙江大学 · GPA 3.0/5.0</span>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="edu-title">
+            <span class="lang-en">High School</span>
+            <span class="lang-cn">高中</span>
+          </span>
+          <span class="edu-date">2015</span>
+        </div>
+        <div class="edu-sub">
+          <span class="lang-en">Second Prize, National High School Physics Competition / Third Prize, Informatics Competition</span>
+          <span class="lang-cn">全国高中生物理竞赛二等奖 / 信息竞赛三等奖</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 核心课程 ================= -->
+    <div class="section">
+      <div class="lang-en"><h2>Core Courses</h2></div>
+      <div class="lang-cn"><h2>核心课程</h2></div>
+      <p class="profile-text" style="text-align:left;">
+        <span class="lang-en">Quantum Mechanics · Electrodynamics · Signals and Systems · Electromagnetic Fields</span>
+        <span class="lang-cn">量子力学 · 电动力学 · 信号与系统 · 电磁场</span>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var btnEn = document.getElementById('btn-en');
+      var btnCn = document.getElementById('btn-cn');
+
+      function setLang(lang) {
+        document.body.classList.remove('lang-en-active', 'lang-cn-active');
+        document.body.classList.add(lang === 'en' ? 'lang-en-active' : 'lang-cn-active');
+        btnEn.classList.toggle('active', lang === 'en');
+        btnCn.classList.toggle('active', lang === 'cn');
+      }
+
+      btnEn.addEventListener('click', function () { setLang('en'); });
+      btnCn.addEventListener('click', function () { setLang('cn'); });
+    })();
+  </script>
+
+</body>
+</html>

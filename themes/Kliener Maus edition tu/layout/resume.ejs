@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+  <title>Resume · <%= site.data.cv.name.en %>
+  </title>
+  <style>
+    /* ===== 简洁学术风，纯白底，细线分隔，保留头像 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    #main {
+      margin: auto;
+    }
+
+    .resume {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+      font-size: 0.95rem;
+      padding-top: 60px;
+      padding-left: 100px;
+      padding-right: 60px;
+      margin: auto;
+    }
+
+    /* ===== 语言切换按钮 ===== */
+    .lang-switch {
+      position: fixed;
+      top: 1rem;
+      right: 3rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .lang-switch button {
+      border: none;
+      background: none;
+      color: #777;
+      font-family: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .lang-switch button:hover {
+      color: #000;
+    }
+
+    .lang-switch button.active {
+      color: #000;
+      border-bottom: 1px solid #000;
+    }
+
+    /* ===== 头部 ===== */
+    .header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 5rem;
+      border-bottom: 1px solid #ccc;
+      min-height: 130px;
+    }
+
+
+    .avatar {
+      width: 140px;
+      height: 200px;
+      /* border-radius: 5% / 5%; */
+      background: #ffffff;
+      border: 0px solid #aaa;
+      position: absolute;
+      left: -15px;
+      top: -10px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .header-text {
+      margin-left: 130px;
+      padding-top: 0.6rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .header .subhead {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #555;
+      font-style: italic;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 1.2rem;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 0.7rem;
+      margin-left: 130px;
+    }
+
+    .contact-row a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px dotted #aaa;
+    }
+
+    .contact-row a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* ===== 章节 ===== */
+    .section {
+      margin-top: 1.4rem;
+    }
+
+    .section h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a1a1a;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .profile-text {
+      font-size: 0.95rem;
+      text-align: justify;
+      color: #222;
+    }
+
+    .skill-line {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: #222;
+    }
+
+    .skill-line b {
+      font-weight: 600;
+    }
+
+    /* ===== 经历条目 ===== */
+    .exp-item {
+      margin-bottom: 0.9rem;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.2rem 0.8rem;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      font-size: 0.97rem;
+      color: #1a1a1a;
+    }
+
+    .exp-sub {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.1rem;
+    }
+
+    .exp-date {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .exp-desc {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+
+    .exp-desc li {
+      display: flex;
+      gap: 0.55rem;
+      font-size: 0.92rem;
+      color: #222;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-desc li::before {
+      content: "•";
+      flex-shrink: 0;
+      color: #333;
+    }
+
+    /* ===== 教育 ===== */
+    .edu-item {
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.2rem 0.8rem;
+    }
+
+    .edu-title {
+      font-weight: 600;
+      font-size: 0.97rem;
+      color: #1a1a1a;
+    }
+
+    .edu-date {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .edu-sub {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* ===== 论文 ===== */
+    .pub-item {
+      font-size: 0.92rem;
+      text-align: justify;
+      color: #222;
+    }
+
+    .pub-item a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px dotted #aaa;
+      word-break: break-word;
+    }
+
+    /* ===== 中英文切换 ===== */
+    .lang-en,
+    .lang-cn {
+      display: none;
+    }
+
+    .exp-desc li.lang-en,
+    .exp-desc li.lang-cn {
+      display: none;
+    }
+
+    body.lang-en-active .lang-en {
+      display: block;
+    }
+
+    body.lang-en-active span.lang-en {
+      display: inline;
+    }
+
+    body.lang-en-active .exp-desc li.lang-en {
+      display: flex;
+    }
+
+    body.lang-cn-active .lang-cn {
+      display: block;
+    }
+
+    body.lang-cn-active span.lang-cn {
+      display: inline;
+    }
+
+    body.lang-cn-active .exp-desc li.lang-cn {
+      display: flex;
+    }
+
+    /* ===== 打印 ===== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 18mm 16mm;
+      }
+
+      body {
+        padding: 0;
+        display: block;
+        background: #fff;
+      }
+
+      .resume {
+        max-width: none;
+        width: 100%;
+      }
+
+      .lang-switch {
+        display: none !important;
+      }
+
+      .exp-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      h2 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      .exp-header {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+
+    /* ===== 小屏 ===== */
+    @media (max-width: 600px) {
+      .resume {
+        font-size: 0.92rem;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 160px;
+        top: 0px;
+        left: 0px;
+      }
+
+      .header-text,
+      .contact-row {
+        margin-left: 100px;
+      }
+
+      .exp-header,
+      .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.05rem;
+      }
+
+      .lang-switch {
+        top: -0.8rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .header {
+        min-height: auto;
+        text-align: left;
+        padding-left: 0;
+      }
+
+      .avatar {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0 0 0.8rem 0;
+        width: 80px;
+        height: 110px;
+      }
+
+      .header-text,
+      .contact-row {
+        margin-left: 0;
+      }
+
+      .contact-row {
+        justify-content: flex-start;
+      }
+    }
+
+    /* sidebar navigation */
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.2s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 15px;
+      color: #818181;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    /* 遮罩容器：固定覆盖视口，不挡交互 */
+    .cloud-mask {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    #navBuffer {
+      position: fixed;
+      top: 0;
+      left: 250px;
+      /* 贴在 nav 右边 */
+      width: 60px;
+      height: 100%;
+      z-index: 9;
+      pointer-events: auto;
+      /* 让它能接收 mouseenter/leave */
+      display: none;
+      /* 默认隐藏，nav 打开时显示 */
+    }
+  </style>
+
+</head>
+
+<body class="lang-en-active">
+    <div id="mySidenav" class="sidenav">
+      <% for (var i in theme.menu){ %>
+        <a href="<%- url_for(theme.menu[i]) %>">
+          <%= i %>
+        </a>
+        <% } %>
+    </div>
+    <div id="navBuffer"></div>
+    <div id="main">
+      <span style="position:fixed;padding:40px;font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <div class="lang-switch">
+        <button type="button" id="btn-en" class="active">EN</button>
+        <button type="button" id="btn-cn">中文</button>
+      </div>
+      <div class="resume">
+        <div class="header">
+          <div class="avatar">
+            <img src="<%= site.data.cv.avatar %>" alt="Profile photo">
+          </div>
+
+          <div class="header-text lang-en">
+            <h1>
+              <%= site.data.cv.name.en %>
+            </h1>
+            <div class="subhead">
+              <%= site.data.cv.title.en %>
+            </div>
+          </div>
+          <div class="header-text lang-cn">
+            <h1>
+              <%= site.data.cv.name.cn %>
+            </h1>
+            <div class="subhead">
+              <%= site.data.cv.title.cn %>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <span>
+              <%= site.data.cv.phone %>
+            </span>
+            <span>
+              <%= site.data.cv.email %>
+            </span>
+            <span>
+              <span class="lang-en">
+                <%= site.data.cv.location.en %>
+              </span>
+              <span class="lang-cn">
+                <%= site.data.cv.location.cn %>
+              </span>
+            </span>
+            <span><a href="<%= site.data.cv.website %>" target="_blank">
+                <%= site.data.cv.website.replace(/^https?:\/\//, '' ) %>
+              </a></span>
+          </div>
+        </div>
+
+        <!-- Profile -->
+        <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.profile }) %>
+          <div class="section">
+            <div class="lang-en">
+              <p class="profile-text">
+                <%= site.data.cv.profile.en %>
+              </p>
+            </div>
+            <div class="lang-cn">
+              <p class="profile-text">
+                <%= site.data.cv.profile.cn %>
+              </p>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="section">
+            <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.skills }) %>
+              <% site.data.cv.skills.forEach(function (s) { %>
+                <div class="skill-line">
+                  <b>
+                    <span class="lang-en">
+                      <%= s.label.en %>
+                    </span>
+                    <span class="lang-cn">
+                      <%= s.label.cn %>
+                    </span>:
+                  </b>
+                  <% if (typeof s.value==='string' ) { %>
+                    <%= s.value %>
+                      <% } else { %>
+                        <span class="lang-en">
+                          <%= s.value.en %>
+                        </span>
+                        <span class="lang-cn">
+                          <%= s.value.cn %>
+                        </span>
+                        <% } %>
+                </div>
+                <% }); %>
+          </div>
+
+          <!-- Projects -->
+          <div class="section">
+            <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.projects }) %>
+              <% site.data.cv.projects.forEach(function (p) { %>
+                <%- include('_partial/resume/expItem', { item: p }) %>
+                  <% }); %>
+          </div>
+
+          <!-- Training -->
+          <div class="section">
+            <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.training }) %>
+              <% site.data.cv.training.forEach(function (t) { %>
+                <%- include('_partial/resume/expItem', { item: t }) %>
+                  <% }); %>
+          </div>
+
+          <!-- Publication -->
+          <div class="section">
+            <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.publication }) %>
+              <p class="pub-item">
+                <%= site.data.cv.publication.text %>
+                  <i>
+                    <%= site.data.cv.publication.journal %>
+                  </i>
+                  <a href="<%= site.data.cv.publication.doi %>" target="_blank">
+                    <%= site.data.cv.publication.doi %>
+                  </a>
+              </p>
+          </div>
+
+          <!-- Education -->
+          <div class="section">
+            <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.education }) %>
+              <% site.data.cv.education.forEach(function (e) { %>
+                <%- include('_partial/resume/eduItem', { item: e }) %>
+                  <% }); %>
+          </div>
+
+          <!-- Courses -->
+          <div class="section">
+            <%- include('_partial/resume/sectionTitle', { title: site.data.cv.sectionTitles.courses }) %>
+              <p class="profile-text" style="text-align:left;">
+                <span class="lang-en">
+                  <%= site.data.cv.courses.en %>
+                </span>
+                <span class="lang-cn">
+                  <%= site.data.cv.courses.cn %>
+                </span>
+              </p>
+          </div>
+
+      </div>
+    </div>
+
+
+    <div class="cloud-mask" id="cloudMask" aria-hidden="true"></div>
+    <!-- 云层遮罩：载入和转场共用 -->
+    <div class="cloud-overlay is-active" id="cloudOverlay" aria-hidden="true">
+      <div class="cloud-overlay__hint">
+        <!-- 载入模式 -->
+        <div class="cloud-overlay__hint--loading">
+          <div class="cloud-overlay__spinner"></div>
+          <div>加载中…</div>
+        </div>
+        <!-- 转场模式 -->
+        <div class="cloud-overlay__hint--navigating">正在前往…</div>
+      </div>
+    </div>
+  
+  <%- partial('_partial/after-footer') %>
+    <script>
+      (function () {
+        var btnEn = document.getElementById('btn-en');
+        var btnCn = document.getElementById('btn-cn');
+
+        function setLang(lang) {
+          document.body.classList.remove('lang-en-active', 'lang-cn-active');
+          document.body.classList.add(lang === 'en' ? 'lang-en-active' : 'lang-cn-active');
+          btnEn.classList.toggle('active', lang === 'en');
+          btnCn.classList.toggle('active', lang === 'cn');
+        }
+
+        btnEn.addEventListener('click', function () { setLang('en'); });
+        btnCn.addEventListener('click', function () { setLang('cn'); });
+      })();
+
+
+
+      // ===== 关闭定时器 =====
+      let closeTimer = null;
+
+      const sidenav = document.getElementById("mySidenav");
+
+      /* ---------- 打开 ---------- */
+      function openNav() {
+        clearTimeout(closeTimer);          // 打开时取消任何待执行的关闭
+        sidenav.style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      /* ---------- 关闭 ---------- */
+      function closeNav() {
+        clearTimeout(closeTimer);
+        sidenav.style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+
+      /* ---------- 方案 1 + 方案 2：鼠标离开后的延迟关闭 ---------- */
+
+      // 鼠标进入（或通过缓冲区回来）→ 取消待关闭
+      sidenav.addEventListener("mouseenter", () => {
+        clearTimeout(closeTimer);
+      });
+
+      // 鼠标离开（含右侧 60px 透明缓冲区）→ 延迟 400ms 再关闭
+      sidenav.addEventListener("mouseleave", () => {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(closeNav, 400);
+      });
+
+    </script>
+</body>
+
+</html>

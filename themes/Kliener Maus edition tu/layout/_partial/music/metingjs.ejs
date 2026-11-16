@@ -1,0 +1,74 @@
+<div id="bgm-player"></div>
+<%- js('https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js') %>
+<%- js('https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js') %>
+<script src="https://unpkg.com/swup@4"></script>
+<script>
+(function () {
+  // ===== 1. 初始化 Swup =====
+  if (typeof Swup === 'undefined') {
+    console.error('Swup 库未加载');
+  } else {
+    var swupContainer = document.querySelector('#swup-container');
+    if (!swupContainer) {
+      console.error('找不到 #swup-container');
+    } else {
+      try {
+        window.swupInstance = new Swup({
+          containers: ['#swup-container']
+        });
+        console.log('Swup 初始化成功');
+      } catch (e) {
+        console.error('Swup 初始化失败:', e);
+      }
+    }
+  }
+
+  // ===== 2. 初始化 APlayer（防重复） =====
+  if (window.bgmplayer) {
+    console.log('APlayer 已存在，跳过初始化');
+    return;
+  }
+
+  var bgmContainer = document.getElementById('bgm-player');
+  if (!bgmContainer) {
+    console.error('找不到 #bgm-player');
+    return;
+  }
+
+   var playlistId = '<%- config.music.playlistId %>';
+  var apiUrl = '<%- config.music.apiUrl %>' + playlistId;
+
+    console.log('playlistId =', '<%- config.music.playlistId %>');
+  console.log('apiUrl =', '<%- config.music.apiUrl %>');
+
+  fetch(apiUrl)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (songs) {
+      var audio = songs.map(function (s) {
+        return {
+          name: s.title,
+          artist: s.author,
+          url: s.url,
+          cover: s.pic,
+          lrc: s.lrc
+        };
+      });
+
+      window.bgmplayer = new APlayer({
+        container: bgmContainer,
+        fixed: true,
+        autoplay: true,
+        volume: 0.3,
+        listFolded: true,
+        audio: audio
+      });
+      window.bgmplayer.__testId = 'initial';
+      console.log('APlayer 初始化成功');
+    })
+    .catch(function (err) {
+      console.error('歌单加载失败', err);
+    });
+})();
+</script>

@@ -24,6 +24,10 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
+    "hexo-tag-aplayer": "^3.0.4",
     "hexo-theme-landscape": "^1.0.0"
+  },
+  "devDependencies": {
+    "little-pjax": "^0.4.0"
   }
 }

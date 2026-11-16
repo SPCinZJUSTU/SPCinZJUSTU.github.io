@@ -1,0 +1,375 @@
+name:
+  en: "Pei-Cheng Sun"
+  cn: "孙 培 诚"
+title:
+  en: "RF / Microwave Engineer"
+  cn: "射频微波工程师"
+location:
+  en: "Hangzhou, Zhejiang"
+  cn: "浙江 · 杭州"
+phone: "+86 138 6802 5704"
+email: "12445058@zju.edu.cn"
+website: "https://spcinzjustu.github.io"
+avatar: "../img/portrait.jpg"
+
+profile:
+  en: >-
+    PhD researcher in microwave metasurfaces with hands-on experience in planar
+    microwave device simulation, magnetic semiconductor metamaterial modeling,
+    RF test automation, and PCB fabrication. Proficient in CST Studio Suite
+    full-wave simulation, capable of independently building VNA measurement
+    systems, and familiar with microwave substrate selection and fabrication
+    constraints up to 20 GHz.
+  cn: >-
+    微波超表面博士研究生，具备平面微波器件仿真、磁性半导体超材料建模、射频测试自动化及PCB工艺的项目经验。
+    熟悉CST Studio Suite全波仿真流程，能够独立完成VNA测量系统搭建，20 GHz以内微波板材选型与加工约束。
+
+skills:
+  - label:
+      en: "Simulation"
+      cn: "仿真"
+    value:
+      en: "CST Studio Suite, Anisotropic Material Modeling"
+      cn: "CST Studio Suite、各向异性材料建模"
+  - label:
+      en: "Programming"
+      cn: "编程"
+    value:
+      en: "Python, LabVIEW, PyVISA / SCPI"
+      cn: "Python、LabVIEW、PyVISA / SCPI"
+  - label:
+      en: "RF & PCB"
+      cn: "射频与PCB"
+    value:
+      en: "VNA Calibration, PCB Process"
+      cn: "VNA校准、PCB工艺"
+  - label:
+      en: "Languages"
+      cn: "语言"
+    value:
+      en: "English (CET-6 · 553)"
+      cn: "英语（CET-6 · 553）"
+
+projects:
+  - title:
+      en: "Planar Microwave Filter & Waveguide Device Simulation"
+      cn: "平面微波滤波器与波导器件仿真"
+    subtitle:
+      en: "CST Studio Suite · Electromagnetic Simulation"
+      cn: "CST Studio Suite · 电磁仿真"
+    date: "Mar 2021 – Sep 2023"
+    bullets:
+      en:
+        - >-
+          Modeled and optimized S-parameters of microstrip bandpass filters in CST;
+          compared Butterworth and Chebyshev responses to determine the design
+          meeting specifications.
+        - >-
+          Established a mapping flow between equivalent circuits and physical
+          dimensions for ridge gap waveguide filters and split-ring resonator
+          arrays; verified return loss and insertion loss in X-band.
+      cn:
+        - >-
+          基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应差异，
+          确定满足指标的设计方案。
+        - >-
+          建立脊间隙波导低通滤波器和开口谐振环阵列等效电路与物理尺寸的映射流程，
+          在X波段验证回波损耗与插入损耗指标。
+
+  - title:
+      en: "Network Analyzer (Agilent E5070) Control Programming"
+      cn: "网络分析仪（Agilent E5070）使用程序编写"
+    subtitle:
+      en: "Agilent E5070 · Instrument Control & Data Acquisition"
+      cn: "Agilent E5070 · 仪器控制与数据采集"
+    date: "Jun 2022 – Aug 2022"
+    bullets:
+      en:
+        - >-
+          Developed control programs for the E5070 network analyzer, enabling
+          parameter configuration, S-parameter acquisition, and result export.
+        - >-
+          Debugged and integrated the program with the instrument, improving
+          automation and repeatability of RF testing.
+      cn:
+        - >-
+          编写网络分析仪E5070的使用与控制程序，实现仪器参数配置、S参数采集与结果导出等功能。
+        - >-
+          完成程序调试与仪器联调，提升射频测试的自动化程度与重复性。
+
+  - title:
+      en: "Microwave PCB Design & Fabrication"
+      cn: "微波PCB设计与加工"
+    subtitle:
+      en: "LPKF PCB Engraver · RF PCB Process"
+      cn: "乐普科雕板机 · 射频PCB工艺"
+    date: "Sep 2022 – Aug 2024"
+    bullets:
+      en:
+        - >-
+          Operated PCB engraver daily; performed spindle maintenance, tool
+          replacement, and platform calibration; troubleshot common faults.
+        - >-
+          Completed filter layout design, controlling line width tolerance and
+          impedance to ensure simulation-measurement comparability.
+        - >-
+          Familiar with standard PCB processes; aware of RF substrate parameters
+          and copper foil roughness effects on insertion loss.
+      cn:
+        - >-
+          负责PCB雕刻机的日常操作、参数设置与加工流程执行，执行主轴保养、刀具更换、
+          平台校准等定期维护。
+        - >-
+          完成滤波器版图绘制，控制线宽公差与阻抗设计，保证仿真与实测的可对比性。
+        - >-
+          了解PCB标准工艺流程，关注射频板材参数与铜箔粗糙度对插损的影响。
+
+  - title:
+      en: "Optical Table Laboratory Design & Setup"
+      cn: "光学平台实验室设计搭建"
+    subtitle:
+      en: "Optical Table · Lab Construction"
+      cn: "光学平台 · 实验室建设"
+    date: "Feb 2023 – May 2023"
+    bullets:
+      en:
+        - >-
+          Participated in layout design and construction of the optical table lab,
+          including vibration isolation platform, optical path layout, power
+          supply, and cabling.
+        - >-
+          Coordinated equipment delivery, installation, and commissioning.
+      cn:
+        - >-
+          参与光学平台实验室布局设计与搭建，完成隔振平台、光路布局、供电与走线等基础环境建设。
+        - >-
+          协调设备进场、安装与调试，确保实验室满足后续实验需求。
+
+  - title:
+      en: "FTP-based Lab Data Storage & Transfer System"
+      cn: "基于FTP的实验室数据储存与传输系统搭建"
+    subtitle:
+      en: "FTP · Data Management"
+      cn: "FTP · 数据管理"
+    date: "May 2023 – Jun 2023"
+    bullets:
+      en:
+        - >-
+          Built an FTP-based lab data storage and transfer system; configured
+          server, user permissions, and directory structure.
+        - >-
+          Established data backup and transfer protocols to improve data security
+          and collaboration efficiency.
+      cn:
+        - >-
+          搭建基于FTP协议的实验室数据存储与传输系统，配置服务器、用户权限与目录结构。
+        - >-
+          制定数据备份与传输规范，提升数据安全性与团队协作效率。
+
+  - title:
+      en: "3D Motion Platform LabVIEW Programming"
+      cn: "三维移动平台LabVIEW程序编写"
+    subtitle:
+      en: "LabVIEW · Motion Control"
+      cn: "LabVIEW · 运动控制"
+    date: "Jun 2023 – Sep 2023"
+    bullets:
+      en:
+        - >-
+          Developed LabVIEW programs for 3D motion platform control, implementing
+          motion control, parameter configuration, and data acquisition.
+        - >-
+          Debugged and integrated the program to improve platform automation.
+      cn:
+        - >-
+          使用LabVIEW编写三维移动平台控制程序，实现运动控制、参数配置与数据采集等功能。
+        - >-
+          完成程序调试与联调，提升平台操作的自动化程度。
+
+  - title:
+      en: "Magnetic Semiconductor Isolator Fabrication & Testing"
+      cn: "磁性半导体隔离器加工测试"
+    subtitle:
+      en: "CST Studio Suite · Anisotropic Material Modeling"
+      cn: "CST Studio Suite · 各向异性材料建模"
+    date: "Oct 2024 – Present"
+    bullets:
+      en:
+        - >-
+          Distinguished ferrite gyromagnetic and magnetic-semiconductor
+          gyroelectric models; established the gyroelectric permittivity tensor
+          in CST to avoid template-induced errors.
+        - >-
+          Completed a scientific paper based on YIG nonreciprocal effects and
+          microwave metamaterial research.
+      cn:
+        - >-
+          区分铁氧体旋磁模型与磁性半导体旋电模型的物理差异，在CST中以Anisotropic
+          Dielectric类型建立旋电介电常数张量。
+        - >-
+          基于YIG材料非互易效应和微波超材料非互易研究，完成科研论文。
+
+  - title:
+      en: "RF / Microwave Test System Setup & Automation"
+      cn: "射频微波测试系统搭建与自动化"
+    subtitle:
+      en: "VNA · Oscilloscope · PyVISA / SCPI"
+      cn: "VNA · 示波器 · PyVISA / SCPI"
+    date: "Oct 2024 – Dec 2025"
+    bullets:
+      en:
+        - >-
+          Built a synchronized oscilloscope-VNA test environment supporting joint
+          time- and frequency-domain observation; compiled reusable automation
+          scripts.
+      cn:
+        - >-
+          搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本供实验室复用。
+
+  - title:
+      en: "PhD Research: Metamaterials & Paper Writing"
+      cn: "博士课题：超材料方向研究与论文撰写"
+    subtitle:
+      en: "Metamaterials · Microwave Nonreciprocal Devices"
+      cn: "超材料 · 微波非互易器件"
+    date: "2024 – Dec 2025"
+    bullets:
+      en:
+        - >-
+          Conducted PhD research on metamaterials, covering experimental design,
+          data analysis, and paper writing.
+        - >-
+          Combined YIG nonreciprocal effects with microwave metamaterial research
+          to complete scientific papers.
+      cn:
+        - >-
+          围绕超材料方向开展博士课题研究，完成实验设计、数据分析与论文撰写。
+        - >-
+          结合YIG材料非互易效应与微波超材料研究，完成相关科研论文。
+
+  - title:
+      en: "PhD Dissertation Writing & Manuscript Revision"
+      cn: "博士论文撰写及小论文回稿"
+    subtitle:
+      en: "Dissertation · Manuscript Revision"
+      cn: "学位论文 · 论文返修"
+    date: "2026 – Present"
+    bullets:
+      en:
+        - "Completing PhD dissertation writing and organization."
+        - "Handling manuscript revision and resubmission."
+      cn:
+        - "完成博士论文撰写与整理工作。"
+        - "处理小论文返修与回稿工作。"
+
+training:
+  - title:
+      en: "Metalworking Practice & Engineering Drawing"
+      cn: "金工实习与工程制图"
+    subtitle:
+      en: "Mechanical Manufacturing Basics · Structural Design"
+      cn: "机械制造基础 · 结构设计"
+    date: "Sep 2023 – Jan 2024"
+    bullets:
+      en:
+        - "Completed basic machining training in turning, milling, and manual arc welding."
+        - >-
+          Mastered engineering drawing standards; able to translate
+          electromagnetic simulation models of passive microwave devices into
+          machinable drawings.
+      cn:
+        - "完成车工、铣工、手工电弧焊等基础工程训练。"
+        - >-
+          掌握工程制图规范，具备将微波无源器件仿真模型转化为可加工图纸的能力。
+
+  - title:
+      en: "Micro-Nano Fabrication Center Training"
+      cn: "微纳加工中心培训"
+    subtitle:
+      en: "Micro-Nano Fabrication · Equipment Operation"
+      cn: "微纳加工工艺 · 设备操作"
+    date: "Jan 2024"
+    bullets:
+      en:
+        - >-
+          Attended specialized training on micro-nano fabrication equipment
+          operation and process standards.
+      cn:
+        - "参加微纳加工中心专项培训，学习设备操作流程与工艺规范。"
+
+publication:
+  text: >-
+    Pei-Cheng Sun, Qi Hong, Zong-Heng Meng, Xin Zhang, Yifei Zhang, Zhiwei Guo,
+    Yi-Pu Wang. Strong coupling between magnons and Anderson-localized microwave
+    photons.
+  journal: "APL Quantum, 3(3): 036112, Sep 2026."
+  doi: "https://doi.org/10.1063/5.0349720"
+
+education:
+  - title:
+      en: "PhD in Quantum Hybrid Systems (Cavity Magnonics)"
+      cn: "量子混合系统（腔磁振子）博士"
+    subtitle:
+      en: "Zhejiang University · Cavity Magnonics"
+      cn: "浙江大学 · 腔磁振子"
+    date: "2021 – Present"
+    bullets:
+      en:
+        - >-
+          Research interests: magnetic semiconductor microwave nonreciprocal
+          devices, planar filter design.
+      cn:
+        - "研究方向：磁性半导体微波非互易器件、平面滤波器设计。"
+
+  - title:
+      en: "BSc in Physics"
+      cn: "物理学 本科"
+    subtitle:
+      en: "Zhejiang University · GPA 3.0/5.0"
+      cn: "浙江大学 · GPA 3.0/5.0"
+    date: "2016 – 2020"
+    bullets:
+      en: []
+      cn: []
+
+  - title:
+      en: "High School"
+      cn: "高中"
+    subtitle:
+      en: >-
+        Second Prize, National High School Physics Competition / Third Prize,
+        Informatics Competition
+      cn: "全国高中生物理竞赛二等奖 / 信息竞赛三等奖"
+    date: "2015"
+    bullets:
+      en: []
+      cn: []
+
+courses:
+  en: >-
+    Quantum Mechanics · Electrodynamics · Signals and Systems · Electromagnetic
+    Fields
+  cn: "量子力学 · 电动力学 · 信号与系统 · 电磁场"
+
+sectionTitles:
+  profile:
+    en: "Profile"
+    cn: "个人简介"
+  skills:
+    en: "Skills & Languages"
+    cn: "专业技能 & 语言能力"
+  projects:
+    en: "Project Experience"
+    cn: "项目经验"
+  training:
+    en: "Mechanical & Engineering Training"
+    cn: "机械与工程训练"
+  publication:
+    en: "Publication"
+    cn: "学术成果"
+  education:
+    en: "Education"
+    cn: "教育经历"
+  courses:
+    en: "Core Courses"
+    cn: "核心课程"

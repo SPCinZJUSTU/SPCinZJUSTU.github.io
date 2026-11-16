@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <style>
+    body { margin: 0; background: transparent; }
+    #bgm-player { width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="bgm-player"></div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script>
+    (function () {
+      var container = document.getElementById('bgm-player');
+      if (!container) return;
+
+      var playlistId = '5068325488';
+      var apiUrl = 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=' + playlistId;
+
+      fetch(apiUrl)
+        .then(function (res) { return res.json(); })
+        .then(function (songs) {
+          var audio = songs.map(function (s) {
+            return {
+              name: s.title,
+              artist: s.author,
+              url: s.url,
+              cover: s.pic,
+              lrc: s.lrc
+            };
+          });
+
+          new APlayer({
+            container: container,
+            fixed: false,
+            autoplay: true,
+            volume: 0.3,
+            listFolded: true,
+            audio: audio
+          });
+        })
+        .catch(function (err) {
+          console.error('歌单加载失败', err);
+        });
+    })();
+  </script>
+</body>
+</html>

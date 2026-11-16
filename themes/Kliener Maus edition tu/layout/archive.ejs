@@ -2,7 +2,7 @@
 <html>
 <%- partial('_partial/head') %>
 <body>
-  <div id="container">
+<div id="swup-container">
     <div id="wrap">
       <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
       <div class="outer">
@@ -14,7 +14,8 @@
       <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
     </div>
     <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-  
+    <div id="bgm-page-enabled" hidden></div>
+ </div> 
       <!-- 云层遮罩：载入和转场共用 -->
   <div class="cloud-overlay is-active" id="cloudOverlay" aria-hidden="true">
     <div class="cloud-overlay__hint">
@@ -27,7 +28,8 @@
       <div class="cloud-overlay__hint--navigating">正在前往…</div>
     </div>
   </div>
-  </div>
+<%- partial('_partial/music/metingjs') %>
+
  <%- partial('_partial/after-footer') %>
 </body>
 </html>
