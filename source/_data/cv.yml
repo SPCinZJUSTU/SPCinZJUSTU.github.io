@@ -10,7 +10,7 @@ location:
 phone: "+86 138 6802 5704"
 email: "12445058@zju.edu.cn"
 website: "https://spcinzjustu.github.io"
-avatar: "../img/portrait.jpg"
+avatar: "/img/portrait.jpg"
 
 profile:
   en: >-
@@ -62,16 +62,16 @@ projects:
       en:
         - >-
           Modeled and optimized S-parameters of microstrip bandpass filters in CST;
-          compared Butterworth and Chebyshev responses to determine the design
-          meeting specifications.
+          compared Butterworth and Chebyshev responses in passband flatness and
+          roll-off to determine the design meeting specifications.
         - >-
           Established a mapping flow between equivalent circuits and physical
-          dimensions for ridge gap waveguide filters and split-ring resonator
-          arrays; verified return loss and insertion loss in X-band.
+          dimensions for ridge gap waveguide low-pass filters and split-ring
+          resonator arrays; verified return loss and insertion loss in X-band.
       cn:
         - >-
-          基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应差异，
-          确定满足指标的设计方案。
+          基于CST完成微带带通滤波器的建模与S参数优化，对比Butterworth与Chebyshev响应在通带平坦度
+          与滚降速度上的差异，确定满足指标的设计方案。
         - >-
           建立脊间隙波导低通滤波器和开口谐振环阵列等效电路与物理尺寸的映射流程，
           在X波段验证回波损耗与插入损耗指标。
@@ -87,7 +87,8 @@ projects:
       en:
         - >-
           Developed control programs for the E5070 network analyzer, enabling
-          parameter configuration, S-parameter acquisition, and result export.
+          instrument parameter configuration, S-parameter acquisition, and
+          result export.
         - >-
           Debugged and integrated the program with the instrument, improving
           automation and repeatability of RF testing.
@@ -98,8 +99,8 @@ projects:
           完成程序调试与仪器联调，提升射频测试的自动化程度与重复性。
 
   - title:
-      en: "Microwave PCB Design & Fabrication"
-      cn: "微波PCB设计与加工"
+      en: "Microwave PCB Design & Fabrication (including PCB Engraver Operation & Maintenance)"
+      cn: "微波PCB设计与加工（含PCB雕刻机使用与维护）"
     subtitle:
       en: "LPKF PCB Engraver · RF PCB Process"
       cn: "乐普科雕板机 · 射频PCB工艺"
@@ -107,22 +108,26 @@ projects:
     bullets:
       en:
         - >-
-          Operated PCB engraver daily; performed spindle maintenance, tool
-          replacement, and platform calibration; troubleshot common faults.
+          Operated PCB engraver daily, including parameter setup and machining;
+          performed spindle maintenance, tool replacement, and platform
+          calibration; troubleshot common faults and maintained logs.
         - >-
           Completed filter layout design, controlling line width tolerance and
-          impedance to ensure simulation-measurement comparability.
+          impedance design to ensure simulation-measurement comparability.
         - >-
-          Familiar with standard PCB processes; aware of RF substrate parameters
-          and copper foil roughness effects on insertion loss.
+          Familiar with standard PCB processes (cutting → patterning → lamination
+          → drilling → copper deposition → solder mask → surface finish →
+          testing); aware of RF substrate parameters and copper foil roughness
+          effects on insertion loss.
       cn:
         - >-
           负责PCB雕刻机的日常操作、参数设置与加工流程执行，执行主轴保养、刀具更换、
-          平台校准等定期维护。
+          平台校准等定期维护，排查常见故障并记录维护日志。
         - >-
           完成滤波器版图绘制，控制线宽公差与阻抗设计，保证仿真与实测的可对比性。
         - >-
-          了解PCB标准工艺流程，关注射频板材参数与铜箔粗糙度对插损的影响。
+          了解PCB标准工艺流程（开料→图形→压合→钻孔→沉铜→防焊→表面处理→测试），
+          关注射频板材参数与铜箔粗糙度对插损的影响。
 
   - title:
       en: "Optical Table Laboratory Design & Setup"
@@ -138,7 +143,8 @@ projects:
           including vibration isolation platform, optical path layout, power
           supply, and cabling.
         - >-
-          Coordinated equipment delivery, installation, and commissioning.
+          Coordinated equipment delivery, installation, and commissioning to
+          ensure the lab met subsequent experimental requirements.
       cn:
         - >-
           参与光学平台实验室布局设计与搭建，完成隔振平台、光路布局、供电与走线等基础环境建设。
@@ -156,13 +162,15 @@ projects:
       en:
         - >-
           Built an FTP-based lab data storage and transfer system; configured
-          server, user permissions, and directory structure.
+          server, user permissions, and directory structure for centralized
+          experiment data management and sharing.
         - >-
           Established data backup and transfer protocols to improve data security
-          and collaboration efficiency.
+          and team collaboration efficiency.
       cn:
         - >-
-          搭建基于FTP协议的实验室数据存储与传输系统，配置服务器、用户权限与目录结构。
+          搭建基于FTP协议的实验室数据存储与传输系统，配置服务器、用户权限与目录结构，
+          实现实验数据集中管理与共享。
         - >-
           制定数据备份与传输规范，提升数据安全性与团队协作效率。
 
@@ -179,7 +187,8 @@ projects:
           Developed LabVIEW programs for 3D motion platform control, implementing
           motion control, parameter configuration, and data acquisition.
         - >-
-          Debugged and integrated the program to improve platform automation.
+          Debugged and integrated the program, improving automation of platform
+          operations.
       cn:
         - >-
           使用LabVIEW编写三维移动平台控制程序，实现运动控制、参数配置与数据采集等功能。
@@ -196,18 +205,19 @@ projects:
     bullets:
       en:
         - >-
-          Distinguished ferrite gyromagnetic and magnetic-semiconductor
-          gyroelectric models; established the gyroelectric permittivity tensor
-          in CST to avoid template-induced errors.
+          Distinguished physical differences between ferrite gyromagnetic models
+          and magnetic semiconductor gyroelectric models; established gyroelectric
+          permittivity tensor using Anisotropic Dielectric material type in CST
+          to avoid errors from applying ferrite templates.
         - >-
-          Completed a scientific paper based on YIG nonreciprocal effects and
-          microwave metamaterial research.
+          Based on YIG nonreciprocal effects and microwave metamaterial
+          nonreciprocal research, completed a scientific paper.
       cn:
         - >-
           区分铁氧体旋磁模型与磁性半导体旋电模型的物理差异，在CST中以Anisotropic
-          Dielectric类型建立旋电介电常数张量。
+          Dielectric材料类型建立旋电介电常数张量，避免套用铁氧体模板导致误差。
         - >-
-          基于YIG材料非互易效应和微波超材料非互易研究，完成科研论文。
+          基于YIG材料的非互易效应和微波超材料非互易相关研究，完成科研论文。
 
   - title:
       en: "RF / Microwave Test System Setup & Automation"
@@ -220,8 +230,8 @@ projects:
       en:
         - >-
           Built a synchronized oscilloscope-VNA test environment supporting joint
-          time- and frequency-domain observation; compiled reusable automation
-          scripts.
+          time-domain and frequency-domain observation; compiled automated
+          measurement scripts for lab reuse.
       cn:
         - >-
           搭建示波器与VNA联动的测试环境，支持时域与频域联合观测，整理自动化测量脚本供实验室复用。
@@ -236,7 +246,7 @@ projects:
     bullets:
       en:
         - >-
-          Conducted PhD research on metamaterials, covering experimental design,
+          Conducted PhD research on metamaterials, including experimental design,
           data analysis, and paper writing.
         - >-
           Combined YIG nonreciprocal effects with microwave metamaterial research
@@ -272,15 +282,20 @@ training:
     date: "Sep 2023 – Jan 2024"
     bullets:
       en:
-        - "Completed basic machining training in turning, milling, and manual arc welding."
         - >-
-          Mastered engineering drawing standards; able to translate
-          electromagnetic simulation models of passive microwave devices into
-          machinable drawings.
+          Machining practice: completed basic engineering training in turning,
+          milling (surface/groove machining), and welding (manual arc welding).
+        - >-
+          Mechanical drawing: mastered engineering drawing standards; able to
+          read and create mechanical part and assembly drawings; capable of
+          translating electromagnetic simulation models of passive microwave
+          devices into machinable cavity/structure drawings.
       cn:
-        - "完成车工、铣工、手工电弧焊等基础工程训练。"
         - >-
-          掌握工程制图规范，具备将微波无源器件仿真模型转化为可加工图纸的能力。
+          机械加工实操：完成车工、铣工（平面/沟槽加工）、焊工（手工电弧焊）等基础工程训练。
+        - >-
+          机械制图与识图：掌握工程制图规范，能熟练阅读与绘制机械零件图、装配图；
+          具备将微波无源器件的电学仿真模型转化为可加工腔体/结构件图纸的跨界能力。
 
   - title:
       en: "Micro-Nano Fabrication Center Training"
@@ -292,10 +307,10 @@ training:
     bullets:
       en:
         - >-
-          Attended specialized training on micro-nano fabrication equipment
-          operation and process standards.
+          Attended specialized training at the Micro-Nano Fabrication Center,
+          learning equipment operation procedures and process standards.
       cn:
-        - "参加微纳加工中心专项培训，学习设备操作流程与工艺规范。"
+        - "参加微纳加工中心专项培训，学习微纳加工设备操作流程与工艺规范。"
 
 publication:
   text: >-
