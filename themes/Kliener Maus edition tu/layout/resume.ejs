@@ -308,20 +308,96 @@
       display: flex;
     }
 
-    /* ===== 打印 ===== */
+     h2 {
+    font-size: 18pt;
+  }
+
+   /* ===== 小屏 ===== */
+    @media (max-width: 600px) {
+      .resume {
+        font-size: 0.92rem;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 160px;
+        top: 0px;
+        left: 0px;
+      }
+
+      .header-text,
+      .contact-row {
+        margin-left: 100px;
+      }
+
+      .exp-header,
+      .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.05rem;
+      }
+
+      .lang-switch {
+        top: -0.8rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .header {
+        min-height: auto;
+        text-align: left;
+        padding-left: 0;
+      }
+
+      .avatar {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0 0 0.8rem 0;
+        width: 80px;
+        height: 110px;
+      }
+
+      .header-text,
+      .contact-row {
+        margin-left: 0;
+      }
+
+      .contact-row {
+        justify-content: flex-start;
+      }
+    }
+    
+@media screen and (min-width: 768px) {
+#main {
+    display: inline;
+    float: none;
+    width: 73.33333333333333%;
+    margin: 0 0.833333333333333%;
+}
+}
+
    /* ===== 打印 ===== */
 @media print {
   @page {
     size: A4 portrait;
-    margin: 16mm 14mm;
+    margin: 10mm 4mm;
   }
+
+.header {
+  padding-bottom: 2rem;
+}
 
   #sidebuttom {
 display: none
   }
 
   html {
-    font-size: 12pt; /* 基准字号，比屏幕略大，打印清晰 */
+    font-size: 18pt; /* 基准字号，比屏幕略大，打印清晰 */
   }
 
   body {
@@ -329,7 +405,7 @@ display: none
     display: block;
     background: #fff;
     color: #000;
-    font-size: 11.5pt;
+    font-size: 12pt;
     line-height: 1.55;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -344,6 +420,10 @@ display: none
   .lang-switch {
     display: none !important;
   }
+  
+  #sidebuttom{
+    display: none
+  }
 
   /* 标题层级 */
   h1 {
@@ -353,7 +433,7 @@ display: none
   }
 
   h2 {
-    font-size: 14pt;
+    font-size: 21pt;
     line-height: 1.3;
     margin: 14pt 0 6pt;
     padding-bottom: 3pt;
@@ -414,73 +494,7 @@ display: none
     text-decoration: none;
   }
 }
-    /* ===== 小屏 ===== */
-    @media (max-width: 600px) {
-      .resume {
-        font-size: 0.92rem;
-      }
-
-      .header h1 {
-        font-size: 1.6rem;
-      }
-
-      .avatar {
-        width: 90px;
-        height: 160px;
-        top: 0px;
-        left: 0px;
-      }
-
-      .header-text,
-      .contact-row {
-        margin-left: 100px;
-      }
-
-      .exp-header,
-      .edu-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.05rem;
-      }
-
-      .lang-switch {
-        top: -0.8rem;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .header {
-        min-height: auto;
-        text-align: left;
-        padding-left: 0;
-      }
-
-      .avatar {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin: 0 0 0.8rem 0;
-        width: 80px;
-        height: 110px;
-      }
-
-      .header-text,
-      .contact-row {
-        margin-left: 0;
-      }
-
-      .contact-row {
-        justify-content: flex-start;
-      }
-    }
-@media screen and (min-width: 768px) {
-#main {
-    display: inline;
-    float: none;
-    width: 73.33333333333333%;
-    margin: 0 0.833333333333333%;
-}
-}
+   
     /* sidebar navigation */
     .sidenav {
       height: 100%;
